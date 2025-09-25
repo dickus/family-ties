@@ -9,7 +9,7 @@
         <stages>
             <li>
                 <label>Harmed my child</label>
-                <baseOpinionOffset>-25</baseOpinionOffset>
+                <baseOpinionOffset>-30</baseOpinionOffset>
             </li>
         </stages>
     </ThoughtDef>
@@ -26,7 +26,7 @@
             <li>
                 <label>My children are in pain</label>
                 <description>My children are suffering.</description>
-                <baseMoodEffect>-20</baseMoodEffect>
+                <baseMoodEffect>-25</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
