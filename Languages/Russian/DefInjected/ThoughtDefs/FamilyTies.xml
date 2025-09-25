@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <HarmedMyChild.stages.0.label>обидел моего ребенка</HarmedMyChild.stages.0.label>
+
+    <MyChildIsInPain.stages.0.label>мой ребенок страдает</MyChildIsInPain.stages.0.label>
+    <MyChildIsInPain.stages.0.description>Мысли о боли, которую испытывает мой ребенок, не дают мне покоя.</MyChildIsInPain.stages.0.description>
+    <MyChildIsInPain.stages.1.label>мой ребенок страдает</MyChildIsInPain.stages.1.label>
+    <MyChildIsInPain.stages.1.description>Мои дети страдают... Это невыносимо.</MyChildIsInPain.stages.1.description>
+</LanguageData>
+
