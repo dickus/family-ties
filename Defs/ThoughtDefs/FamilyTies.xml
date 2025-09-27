@@ -2,7 +2,7 @@
 <Defs>
     <ThoughtDef>
         <defName>HarmedMyChild</defName>
-        <thoughtClass>Thought_MemorySocial</thoughtClass>
+        <thoughtClass>FamilyTies.Thought_HarmedMyChild</thoughtClass>
         <durationDays>30</durationDays>
         <stackLimit>5</stackLimit>
         <stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>

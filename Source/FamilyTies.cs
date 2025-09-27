@@ -73,6 +73,27 @@ namespace FamilyTies
         }
     }
 
+    public class Thought_HarmedMyChild : Thought_MemorySocial
+    {
+        public override string LabelCap
+        {
+            get
+            {
+                Pawn attacker = this.otherPawn;
+                if (attacker == null) return base.LabelCap;
+
+                if (attacker.gender == Gender.Male)
+                {
+                    return "HarmedMyChild_Male".Translate();
+                }
+                else
+                {
+                    return "HarmedMyChild_Female".Translate();
+                }
+            }
+        }
+    }
+
     public class Thought_HarmedMyOwnChild : Thought_Memory
     {
         public override string LabelCap
@@ -112,7 +133,6 @@ namespace FamilyTies
                 Pawn sufferingChild = FindFirstSufferingChild();
                 if (sufferingChild != null)
                 {
-                    // Используем перевод с именованным аргументом
                     return "MyChildIsInPain_Label".Translate(sufferingChild.Named("CHILDNAME"));
                 }
                 return base.LabelCap;
