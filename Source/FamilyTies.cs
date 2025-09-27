@@ -130,11 +130,15 @@ namespace FamilyTies
         {
             get
             {
-                Pawn sufferingChild = FindFirstSufferingChild();
-                if (sufferingChild != null)
+                if (this.CurStageIndex == 0)
                 {
-                    return "MyChildIsInPain_Label".Translate(sufferingChild.Named("CHILDNAME"));
+                    Pawn sufferingChild = FindFirstSufferingChild();
+                    if (sufferingChild != null)
+                    {
+                        return "MyChildIsInPain_Label".Translate(sufferingChild.Named("CHILDNAME"));
+                    }
                 }
+
                 return base.LabelCap;
             }
         }
