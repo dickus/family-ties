@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+    <HarmedMyChild_Male>Обидел моего ребёнка</HarmedMyChild_Male>
+    <HarmedMyChild_Female>Обидела моего ребёнка</HarmedMyChild_Female>
+
     <HarmedMyOwnChild_Male>Причинил боль своему ребёнку</HarmedMyOwnChild_Male>
     <HarmedMyOwnChild_Female>Причинила боль своему ребёнку</HarmedMyOwnChild_Female>
 
