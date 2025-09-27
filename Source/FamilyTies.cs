@@ -7,6 +7,24 @@ using System.Collections.Generic;
 
 namespace FamilyTies
 {
+    public static class TraitUtil
+    {
+        public static bool IsUnempathetic(Pawn pawn)
+        {
+            if (pawn?.story?.traits == null) return false;
+
+            if (pawn.story.traits.HasTrait(TraitDefOf.Psychopath) ||
+                pawn.story.traits.HasTrait(TraitDefOf.Bloodlust)) return true;
+
+            if (ModLister.IdeologyInstalled)
+            {
+                if (pawn.story.traits.HasTrait(TraitDef.Named("Cannibal"))) return true;
+            }
+
+            return false;
+        }
+    }
+
     [StaticConstructorOnStartup]
     public static class HarmonyPatches
     {
@@ -33,13 +51,16 @@ namespace FamilyTies
 
                 if (victim.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Parent) == attacker)
                 {
-                    attacker.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("HarmedMyOwnChild"));
+                    if (!TraitUtil.IsUnempathetic(attacker))
+                    {
+                        attacker.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("HarmedMyOwnChild"));
+                    }
                 }
 
                 IEnumerable<Pawn> parents = victim.relations.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
                 if (!parents.Any()) return;
                 foreach (var parent in parents) {
-                    if (parent != null && !parent.Dead && parent != attacker) {
+                    if (parent != null && !parent.Dead && parent != attacker && ! TraitUtil.IsUnempathetic(parent)) {
                         parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("HarmedMyChild"), attacker);
                     }
                 }
@@ -69,6 +90,8 @@ namespace FamilyTies
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
+            if (TraitUtil.IsUnempathetic(p)) return ThoughtState.Inactive;
+
             if (p.Map == null) return ThoughtState.Inactive;
 
             int sufferingChildrenCount = 0;
