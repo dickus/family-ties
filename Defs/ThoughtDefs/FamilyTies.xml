@@ -16,10 +16,11 @@
 
     <ThoughtDef>
         <defName>MyChildIsInPain</defName>
+        <thoughtClass>FamilyTies.Thought_MyChildIsInPain</thoughtClass>
         <workerClass>FamilyTies.ThoughtWorker_MyChildIsInPain</workerClass>
         <stages>
             <li>
-                <label>My child {0} is in pain</label>
+                <label>My child is in pain</label>
                 <description>The thought of my child's pain haunts me.</description>
                 <baseMoodEffect>-8</baseMoodEffect>
             </li>
@@ -38,7 +39,7 @@
         <stackLimit>3</stackLimit>
         <stages>
             <li>
-                <label>I harmed my own child</label>
+                <label>Harmed my own child</label>
                 <description>I harmed my own child. How could I have done this?</description>
                 <baseMoodEffect>-15</baseMoodEffect>
             </li>

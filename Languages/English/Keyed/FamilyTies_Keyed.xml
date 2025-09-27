@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-    <HarmedMyOwnChild_Male>I harmed my own child</HarmedMyOwnChild_Male>
-    <HarmedMyOwnChild_Female>I harmed my own child</HarmedMyOwnChild_Female>
+    <HarmedMyOwnChild_Male>Harmed my own child</HarmedMyOwnChild_Male>
+    <HarmedMyOwnChild_Female>Harmed my own child</HarmedMyOwnChild_Female>
+
+    <MyChildIsInPain_Label>My child {CHILDNAME} is in pain</MyChildIsInPain_Label>
 </LanguageData>
 
