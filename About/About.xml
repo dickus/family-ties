@@ -2,15 +2,11 @@
 <ModMetaData>
     <name>Family Ties</name>
     <author>dickus</author>
-    <modVersion>0.1.5</modVersion>
+    <modVersion>0.2.0</modVersion>
     <packageId>dickus.familyties</packageId>
     <description>Have you ever wondered why the death of a child makes a pawn hate the killer, but the injuries inflicted on the child mean nothing to the parent?
 
-Even on the harsh outskirts of the galaxy, family ties matter. This mod deepens the relationship between parents and children, forcing parents to respond to the pain and hurt of their offspring.
-
-― Parents will hate those who harmed their child.
-― Parents' mood will drop if their children are in pain.
-― Parents' mood will drop if they will harm their own children.</description>
+Even on the harsh outskirts of the galaxy, family ties matter. This mod deepens the relationship between parents and children, forcing parents to respond to the pain and hurt of their offspring.</description>
     <supportedVersions>
         <li>1.5</li>
         <li>1.6</li>

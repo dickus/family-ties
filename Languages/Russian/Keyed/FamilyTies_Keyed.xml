@@ -7,5 +7,9 @@
     <HarmedMyOwnChild_Female>Причинила боль своему ребёнку</HarmedMyOwnChild_Female>
 
     <MyChildIsInPain_Label>Мой ребёнок {CHILDNAME} страдает</MyChildIsInPain_Label>
+
+    <!-- SETTINGS -->
+    <SettingLabel_CannibalsCare>Каннибалы заботятся о семье</SettingLabel_CannibalsCare>
+    <SettingTooltip_CannibalsCare>Если включить, каннибалы будут переживать о своих детях.</SettingTooltip_CannibalsCare>
 </LanguageData>
 

@@ -7,5 +7,9 @@
     <HarmedMyOwnChild_Female>Harmed my own child</HarmedMyOwnChild_Female>
 
     <MyChildIsInPain_Label>My child {CHILDNAME} is in pain</MyChildIsInPain_Label>
+
+    <!-- SETTINGS -->
+    <SettingLabel_CannibalsCare>Cannibals care about family</SettingLabel_CannibalsCare>
+    <SettingTooltip_CannibalsCare>Check if you want pawns with Cannibal trait to care about their family.</SettingTooltip_CannibalsCare>
 </LanguageData>
 

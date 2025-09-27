@@ -12,12 +12,18 @@ namespace FamilyTies
         public static bool IsUnempathetic(Pawn pawn)
         {
             if (pawn?.story?.traits == null) return false;
+
             if (pawn.story.traits.HasTrait(TraitDefOf.Psychopath) ||
                 pawn.story.traits.HasTrait(TraitDefOf.Bloodlust)) return true;
+
             if (ModLister.IdeologyInstalled)
             {
-                if (pawn.story.traits.HasTrait(TraitDef.Named("Cannibal"))) return true;
+                if (!FamilyTiesMod.settings.cannibalsCare)
+                {
+                    if (pawn.story.traits.HasTrait(TraitDef.Named("Cannibal"))) return true;
+                }
             }
+
             return false;
         }
     }
