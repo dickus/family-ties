@@ -9,7 +9,13 @@
     <MyChildIsInPain_Label>My child {CHILDNAME} is in pain</MyChildIsInPain_Label>
 
     <!-- SETTINGS -->
-    <SettingLabel_CannibalsCare>Cannibals care about family</SettingLabel_CannibalsCare>
-    <SettingTooltip_CannibalsCare>Check if you want pawns with Cannibal trait to care about their family.</SettingTooltip_CannibalsCare>
+    <FT_SettingLabel_CannibalsCareAboutChildrenPain>Cannibals care about family</FT_SettingLabel_CannibalsCareAboutChildrenPain>
+    <FT_SettingTooltip_CannibalsCareAboutChildrenPain>Check if you want pawns with Cannibal trait to care about their family.</FT_SettingTooltip_CannibalsCareAboutChildrenPain>
+
+    <FT_SettingLabel_FamilyDiedThought>Don't care about family death (requires restart)</FT_SettingLabel_FamilyDiedThought>
+    <FT_SettingTooltip_FamilyDiedThought>Check if you want pawns with Psychopath trait ignore family members' deaths.</FT_SettingTooltip_FamilyDiedThought>
+
+    <FT_SettingLabel_FamilyDiedSocial>Don't care at all (requires restart)</FT_SettingLabel_FamilyDiedSocial>
+    <FT_SettingTooltip_FamilyDiedSocial>Check if you want pawns with Psychopath trait to be indifferent to killer and to the ones who sold psycho's relatives.</FT_SettingTooltip_FamilyDiedSocial>
 </LanguageData>
 

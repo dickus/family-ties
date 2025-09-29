@@ -9,7 +9,13 @@
     <MyChildIsInPain_Label>Мой ребёнок {CHILDNAME} страдает</MyChildIsInPain_Label>
 
     <!-- SETTINGS -->
-    <SettingLabel_CannibalsCare>Каннибалы заботятся о семье</SettingLabel_CannibalsCare>
-    <SettingTooltip_CannibalsCare>Если включить, каннибалы будут переживать о своих детях.</SettingTooltip_CannibalsCare>
+    <FT_SettingLabel_CannibalsCareAboutChildrenPain>Каннибалы заботятся о семье</FT_SettingLabel_CannibalsCareAboutChildrenPain>
+    <FT_SettingTooltip_CannibalsCareAboutChildrenPain>Если включить, каннибалы будут переживать о своих детях.</FT_SettingTooltip_CannibalsCareAboutChildrenPain>
+
+    <FT_SettingLabel_FamilyDiedThought>Не беспокоиться о смертях членов семьи (требуется перезапуск)</FT_SettingLabel_FamilyDiedThought>
+    <FT_SettingTooltip_FamilyDiedThought>Если включить, психопаты не будут переживать о смертях членов своей семьи.</FT_SettingTooltip_FamilyDiedThought>
+
+    <FT_SettingLabel_FamilyDiedSocial>Совсем не беспокоиться (требуется перезапуск)</FT_SettingLabel_FamilyDiedSocial>
+    <FT_SettingTooltip_FamilyDiedSocial>Если включить, психопаты не будут снижать своё отношение к убийце или тому, кто продал близкого.</FT_SettingTooltip_FamilyDiedSocial>
 </LanguageData>
 
