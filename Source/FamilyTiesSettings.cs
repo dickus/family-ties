@@ -5,6 +5,8 @@ namespace FamilyTies
 {
     public class FamilyTiesSettings : ModSettings
     {
+        public int ageOfCaring = 0;
+
         public bool cannibalsCareAboutChildernPain = false;
 
         public bool patchFamilyDiedThought = true;
@@ -13,6 +15,8 @@ namespace FamilyTies
         public override void ExposeData()
         {
             base.ExposeData();
+
+            Scribe_Values.Look(ref ageOfCaring, "ageOfCaring", ageOfCaring, true);
 
             Scribe_Values.Look(ref cannibalsCareAboutChildernPain, "cannibalsCareAboutChildernPain", false);
 

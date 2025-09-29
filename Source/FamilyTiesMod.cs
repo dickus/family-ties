@@ -17,6 +17,16 @@ namespace FamilyTies
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
 
+            var ageOfCaring = settings.ageOfCaring;
+
+            listingStandard.Label(
+                    "FT_SettingLabel_AgeOfCaring".Translate() + ": " + ageOfCaring,
+                    -1f,
+                    new TipSignal("FT_SettingTooltip_AgeOfCaring".Translate())
+            );
+
+            settings.ageOfCaring = (int)listingStandard.Slider(settings.ageOfCaring, 0, 100);
+
             listingStandard.CheckboxLabeled(
                     "FT_SettingLabel_CannibalsCareAboutChildrenPain".Translate(),
                     ref settings.cannibalsCareAboutChildernPain,

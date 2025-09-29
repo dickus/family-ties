@@ -53,6 +53,9 @@ namespace FamilyTies
                 if (!(dinfo.Instigator is Pawn attacker) || attacker == victim) return;
                 if (!victim.RaceProps.Humanlike || victim.relations == null) return;
 
+                int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+                if (ageLimit != 0 && victim.ageTracker.AgeBiologicalYears > ageLimit) return;
+
                 IEnumerable<Pawn> parents = victim.relations.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
                 if (!parents.Any()) return;
 
@@ -184,9 +187,14 @@ namespace FamilyTies
                 Pawn parent = otherPawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Parent);
                 if (parent == p)
                 {
+                    Pawn child = otherPawn;
                     if (!otherPawn.Dead && otherPawn.health.hediffSet.PainTotal > 0.01f)
                     {
-                        sufferingChildrenCount++;
+                        int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+                        if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit)
+                        {
+                            sufferingChildrenCount++;
+                        }
                     }
                 }
             }
