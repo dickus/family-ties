@@ -38,6 +38,7 @@ namespace FamilyTies
             var targetDamageMethod = AccessTools.Method(typeof(Thing), "TakeDamage", new Type[] { typeof(DamageInfo) });
             if (targetDamageMethod != null) {
                 var takeDamagePostfix = new HarmonyMethod(typeof(Pawn_TakeDamage_Patch), nameof(Pawn_TakeDamage_Patch.Postfix));
+
                 harmony.Patch(targetDamageMethod, postfix: takeDamagePostfix);
             }
         }
@@ -162,9 +163,11 @@ namespace FamilyTies
                 if (otherPawn == this.pawn || otherPawn.relations == null) continue;
                 if (otherPawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Parent) == this.pawn)
                 {
-                    if (!otherPawn.Dead && otherPawn.health.hediffSet.PainTotal > 0.01f)
+                    Pawn child = otherPawn;
+                    if (!child.Dead && child.health.hediffSet.PainTotal > 0.01f)
                     {
-                        return otherPawn;
+                        int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+                        if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit) return child;
                     }
                 }
             }
@@ -188,13 +191,10 @@ namespace FamilyTies
                 if (parent == p)
                 {
                     Pawn child = otherPawn;
-                    if (!otherPawn.Dead && otherPawn.health.hediffSet.PainTotal > 0.01f)
+                    if (!child.Dead && child.health.hediffSet.PainTotal > 0.01f)
                     {
                         int ageLimit = FamilyTiesMod.settings.ageOfCaring;
-                        if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit)
-                        {
-                            sufferingChildrenCount++;
-                        }
+                        if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit) sufferingChildrenCount++;
                     }
                 }
             }
