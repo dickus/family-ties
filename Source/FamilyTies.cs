@@ -18,7 +18,7 @@ namespace FamilyTies
 
             if (ModLister.IdeologyInstalled)
             {
-                if (!FamilyTiesMod.settings.cannibalsCare)
+                if (!FamilyTiesMod.settings.cannibalsCareAboutChildernPain)
                 {
                     if (pawn.story.traits.HasTrait(TraitDef.Named("Cannibal"))) return true;
                 }
@@ -34,10 +34,11 @@ namespace FamilyTies
         static HarmonyPatches()
         {
             var harmony = new Harmony("com.dickus.familyties");
-            var targetMethod = AccessTools.Method(typeof(Thing), "TakeDamage", new Type[] { typeof(DamageInfo) });
-            if (targetMethod != null) {
-                var postfix = new HarmonyMethod(typeof(Pawn_TakeDamage_Patch), nameof(Pawn_TakeDamage_Patch.Postfix));
-                harmony.Patch(targetMethod, postfix: postfix);
+
+            var targetDamageMethod = AccessTools.Method(typeof(Thing), "TakeDamage", new Type[] { typeof(DamageInfo) });
+            if (targetDamageMethod != null) {
+                var takeDamagePostfix = new HarmonyMethod(typeof(Pawn_TakeDamage_Patch), nameof(Pawn_TakeDamage_Patch.Postfix));
+                harmony.Patch(targetDamageMethod, postfix: takeDamagePostfix);
             }
         }
     }
