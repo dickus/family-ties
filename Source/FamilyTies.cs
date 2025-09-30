@@ -28,6 +28,30 @@ namespace FamilyTies
         }
     }
 
+    public static class SickPawnUtil
+    {
+        public static bool IsSick(Pawn pawn)
+        {
+            return pawn.health.hediffSet.hediffs.Any(IsWorrisomeDisease);
+        }
+
+        public static bool IsCriticallyIll(Pawn pawn)
+        {
+            return pawn.health.hediffSet.hediffs.Any(h => IsWorrisomeDisease(h) && h.def.lethalSeverity > 0 && h.Severity > 0.8f);
+        }
+
+        public static bool IsWorrisomeDisease(Hediff h)
+        {
+            if (h is Hediff_Injury) return false;
+
+            bool isImmunizable = h.def.HasComp(typeof(HediffComp_Immunizable));
+            bool makesSickThought = h.def.makesSickThought;
+            bool isTendable = h.def.HasComp(typeof(HediffComp_TendDuration));
+
+            return (isImmunizable || makesSickThought || isTendable) && h.Severity > 0.1f;
+        }
+    }
+
     [StaticConstructorOnStartup]
     public static class HarmonyPatches
     {
@@ -122,6 +146,21 @@ namespace FamilyTies
             }
         }
 
+        public override string Description
+        {
+            get
+            {
+                if (this.pawn.gender == Gender.Male)
+                {
+                    return "HarmedMyOwnChild_Desc_Male".Translate();
+                }
+                else
+                {
+                    return "HarmedMyOwnChild_Desc_Female".Translate();
+                }
+            }
+        }
+
         public override float MoodOffset()
         {
             if (TraitUtil.IsUnempathetic(this.pawn))
@@ -182,30 +221,156 @@ namespace FamilyTies
             if (TraitUtil.IsUnempathetic(p)) return ThoughtState.Inactive;
             if (p.Map == null) return ThoughtState.Inactive;
 
-            int sufferingChildrenCount = 0;
+            int suffereingChildrenCount = 0;
             List<Pawn> allPawnsOnMap = p.Map.mapPawns.AllPawns;
+
             foreach (Pawn otherPawn in allPawnsOnMap)
             {
                 if (otherPawn == p || otherPawn.relations == null) continue;
-                Pawn parent = otherPawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Parent);
-                if (parent == p)
+
+                if (otherPawn.relations.DirectRelations.Any(rel => rel.def == PawnRelationDefOf.Parent && rel.otherPawn == p))
                 {
                     Pawn child = otherPawn;
-                    if (!child.Dead && child.health.hediffSet.PainTotal > 0.01f)
+                    int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+
+                    if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit)
                     {
-                        int ageLimit = FamilyTiesMod.settings.ageOfCaring;
-                        if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit) sufferingChildrenCount++;
+                        if (!child.Dead && child.health.hediffSet.PainTotal > 0.01f) suffereingChildrenCount++;
                     }
                 }
             }
 
-            if (sufferingChildrenCount == 1)
+            if (suffereingChildrenCount == 1) return ThoughtState.ActiveAtStage(0);
+            if (suffereingChildrenCount > 1) return ThoughtState.ActiveAtStage(1);
+
+            return ThoughtState.Inactive;
+        }
+    }
+
+    public class Thought_MyChildIsSick : Thought_Situational
+    {
+        public override string LabelCap
+        {
+            get
             {
-                return ThoughtState.ActiveAtStage(0);
+                if (this.CurStageIndex == 0 || this.CurStageIndex == 1)
+                {
+                    Pawn sickChild = FindSingleSickChild();
+                    if (sickChild != null)
+                    {
+                        string key = $"MyChildIsSick_Label_Stage{this.CurStageIndex}";
+
+                        return key.Translate(sickChild.Named("CHILDNAME"));
+                    }
+                }
+
+                return base.LabelCap;
             }
-            else if (sufferingChildrenCount > 1)
+        }
+
+        private Pawn FindSingleSickChild()
+        {
+            if (this.pawn.Map == null) return null;
+
+            Pawn foundChild = null;
+            int sickCount = 0;
+            List<Pawn> allPawnsOnMap = this.pawn.Map.mapPawns.AllPawns;
+
+            foreach (Pawn otherPawn in allPawnsOnMap)
             {
-                return ThoughtState.ActiveAtStage(1);
+                if (otherPawn == this.pawn || otherPawn.relations == null) continue;
+
+                if (otherPawn.relations.DirectRelations.Any(rel => rel.def == PawnRelationDefOf.Parent && rel.otherPawn == this.pawn))
+                {
+                    if (SickPawnUtil.IsSick(otherPawn))
+                    {
+                        sickCount++;
+
+                        foundChild = otherPawn;
+                    }
+                }
+            }
+
+            return (sickCount == 1) ? foundChild : null;
+        }
+
+        public override string Description
+        {
+            get
+            {
+                Pawn sickChild = FindSingleSickChild();
+
+                if (this.CurStageIndex == 0 && sickChild != null)
+                {
+                    string genderKey = (sickChild.gender == Gender.Male) ? "Male" : "Female";
+                    string key = $"MyChildIsSick_Stage0_Desc_{genderKey}";
+
+                    return key.Translate(sickChild.Named("CHILDNAME"));
+                }
+
+                if (this.CurStageIndex == 1 && sickChild != null)
+                {
+                    string parentGenderKey = (this.pawn.gender == Gender.Male) ? "ParentMale" : "ParentFemale";
+                    string childGenderKey = (sickChild.gender == Gender.Male) ? "ChildMale" : "ChildFemale";
+                    string key = $"MyChildIsSick_Stage1_Desc_{parentGenderKey}_{childGenderKey}";
+
+                    return key.Translate(sickChild.Named("CHILDNAME"));
+                }
+
+                return base.Description;
+            }
+        }
+    }
+
+    public class ThoughtWorker_MyChildIsSick : ThoughtWorker
+    {
+        protected override ThoughtState CurrentStateInternal(Pawn p)
+        {
+            if (TraitUtil.IsUnempathetic(p)) return ThoughtState.Inactive;
+            if (p.Map == null) return ThoughtState.Inactive;
+
+            List<Pawn> sickChildren = new List<Pawn>();
+            List<Pawn> allPawnsOnMap = p.Map.mapPawns.AllPawns;
+
+            foreach (Pawn otherPawn in allPawnsOnMap)
+            {
+                if (otherPawn == p || otherPawn.relations == null) continue;
+
+                if (otherPawn.relations.DirectRelations.Any(rel => rel.def == PawnRelationDefOf.Parent && rel.otherPawn == p))
+                {
+                    Pawn child = otherPawn;
+                    int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+
+                    if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit)
+                    {
+                        if (SickPawnUtil.IsSick(child)) sickChildren.Add(child);
+                    }
+                }
+            }
+
+            if (sickChildren.Count == 1)
+            {
+                Pawn theChild = sickChildren.First();
+
+                if (SickPawnUtil.IsCriticallyIll(theChild))
+                {
+                    return ThoughtState.ActiveAtStage(1);
+                }
+                else
+                {
+                    return ThoughtState.ActiveAtStage(0);
+                }
+            }
+            else if (sickChildren.Count > 1)
+            {
+                if (sickChildren.All(child => SickPawnUtil.IsCriticallyIll(child)))
+                {
+                    return ThoughtState.ActiveAtStage(3);
+                }
+                else
+                {
+                    return ThoughtState.ActiveAtStage(2);
+                }
             }
 
             return ThoughtState.Inactive;

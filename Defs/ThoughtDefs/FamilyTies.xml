@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+    <!-- PAIN -->
     <ThoughtDef>
         <defName>HarmedMyChild</defName>
         <thoughtClass>FamilyTies.Thought_HarmedMyChild</thoughtClass>
@@ -22,7 +23,7 @@
             <li>
                 <label>My child is in pain</label>
                 <description>The thought of my child's pain haunts me.</description>
-                <baseMoodEffect>-8</baseMoodEffect>
+                <baseMoodEffect>-7</baseMoodEffect>
             </li>
             <li>
                 <label>My children are in pain</label>
@@ -42,6 +43,35 @@
                 <label>Harmed my own child</label>
                 <description>I harmed my own child. How could I have done this?</description>
                 <baseMoodEffect>-15</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <!-- SICKNESS -->
+    <ThoughtDef>
+        <defName>MyChildIsSick</defName>
+        <thoughtClass>FamilyTies.Thought_MyChildIsSick</thoughtClass>
+        <workerClass>FamilyTies.ThoughtWorker_MyChildIsSick</workerClass>
+        <stages>
+            <li>
+                <label>My child is sick</label>
+                <description>I'm worried about my child, {CHILDNAME}. I hope it gets better soon.</description>
+                <baseMoodEffect>-4</baseMoodEffect>
+            </li>
+            <li>
+                <label>My child is dying</label>
+                <description>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose him.</description>
+                <baseMoodEffect>-15</baseMoodEffect>
+            </li>
+            <li>
+                <label>My children are sick</label>
+                <description>I'm worried about my children. I hope they all get better soon.</description>
+                <baseMoodEffect>-8</baseMoodEffect>
+            </li>
+            <li>
+                <label>My children are dying</label>
+                <description>They all may die... I can't take it. Please, let them live...</description>
+                <baseMoodEffect>-20</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>

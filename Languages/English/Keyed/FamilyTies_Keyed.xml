@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+    <!-- PAIN -->
     <HarmedMyChild_Male>Harmed my child</HarmedMyChild_Male>
     <HarmedMyChild_Female>Harmed my child</HarmedMyChild_Female>
 
     <HarmedMyOwnChild_Male>Harmed my own child</HarmedMyOwnChild_Male>
+    <HarmedMyOwnChild_Desc_Male>I harmed my own child. How could I have done this?</HarmedMyOwnChild_Desc_Male>
+
     <HarmedMyOwnChild_Female>Harmed my own child</HarmedMyOwnChild_Female>
+    <HarmedMyOwnChild_Desc_Female>I harmed my own child. How could I have done this?</HarmedMyOwnChild_Desc_Female>
 
     <MyChildIsInPain_Label>My child {CHILDNAME} is in pain</MyChildIsInPain_Label>
+
+    <!-- SICKNESS -->
+    <MyChildIsSick_Label_Stage0>My child {CHILDNAME} is sick</MyChildIsSick_Label_Stage0>
+    <MyChildIsSick_Stage0_Desc_Male>I'm worried about my child, {CHILDNAME}. I hope he gets better soon.</MyChildIsSick_Stage0_Desc_Male>
+    <MyChildIsSick_Stage0_Desc_Female>I'm worried about my child, {CHILDNAME}. I hope she gets better soon.</MyChildIsSick_Stage0_Desc_Female>
+
+    <MyChildIsSick_Label_Stage1>My child {CHILDNAME} is dying</MyChildIsSick_Label_Stage1>
+    <MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose him.</MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>
+    <MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose her.</MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>
+
+    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose him.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>
+    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose her.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>
 
     <!-- SETTINGS -->
     <FT_SettingLabel_AgeOfCaring>Age of caring</FT_SettingLabel_AgeOfCaring>

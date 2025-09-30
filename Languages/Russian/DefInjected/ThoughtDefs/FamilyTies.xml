@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+    <!-- БОЛЬ -->
     <HarmedMyChild.stages.0.label>обидел моего ребёнка</HarmedMyChild.stages.0.label>
 
     <MyChildIsInPain.stages.0.label>мой ребёнок страдает</MyChildIsInPain.stages.0.label>
@@ -8,6 +9,11 @@
     <MyChildIsInPain.stages.1.label>мои дети страдают</MyChildIsInPain.stages.1.label>
     <MyChildIsInPain.stages.1.description>Мои дети страдают... Это невыносимо.</MyChildIsInPain.stages.1.description>
 
-    <HarmedMyOwnChild.stages.0.description>Мой ребёнок пострадал от моей же руки.</HarmedMyOwnChild.stages.0.description>
+    <!-- БОЛЕЗНЬ -->
+    <MyChildIsSick.stages.2.label>Мои дети болеют</MyChildIsSick.stages.2.label>
+    <MyChildIsSick.stages.2.description>Я волнуюсь за своих детей. Надеюсь, они скоро все поправятся.</MyChildIsSick.stages.2.description>
+
+    <MyChildIsSick.stages.3.label>Мои дети умирают</MyChildIsSick.stages.3.label>
+    <MyChildIsSick.stages.3.description>Они все могут умереть... Я этого не вынесу. Пожалуйста, пусть они выживут...</MyChildIsSick.stages.3.description>
 </LanguageData>
 
