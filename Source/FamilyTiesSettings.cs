@@ -16,6 +16,9 @@ namespace FamilyTies
         public int childMinEmpathyAge = 6;
         public int childMaxEmpathyAge = 0;
 
+        public float childWorryPainThreshold = 0.15f;
+        public float childWorrySickThreshold = 0.25f;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -31,6 +34,9 @@ namespace FamilyTies
             Scribe_Values.Look(ref childrenWorryAboutParents, "childrenWorryAboutParents", true);
             Scribe_Values.Look(ref childMinEmpathyAge, "childMinEmpathyAge", childMinEmpathyAge, true);
             Scribe_Values.Look(ref childMaxEmpathyAge, "childMaxEmpathyAge", childMaxEmpathyAge, true);
+
+            Scribe_Values.Look(ref childWorryPainThreshold, "childWorryPainThreshold", childWorryPainThreshold, true);
+            Scribe_Values.Look(ref childWorrySickThreshold, "childWorrySickThreshold", childWorrySickThreshold, true);
         }
     }
 }

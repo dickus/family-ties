@@ -52,6 +52,35 @@ namespace FamilyTies
         }
     }
 
+    public static class StoicismUtil
+    {
+        public static float GetPainThreshold(Pawn parent)
+        {
+            float threshold = FamilyTiesMod.settings.childWorryPainThreshold;
+
+            if (parent.story.traits.HasTrait(TraitDef.Named("Wimp"))) return 0.01f;
+
+            Trait nervesTrait = parent.story.traits.GetTrait(TraitDef.Named("Nerves"));
+
+            if (nervesTrait != null && nervesTrait.Degree == 2) return 0.8f;
+
+            return threshold;
+        }
+
+        public static float GetSicknessThreshold(Pawn parent)
+        {
+            float threshold = FamilyTiesMod.settings.childWorrySickThreshold;
+
+            if (parent.story.traits.HasTrait(TraitDef.Named("Wimp"))) return 0.1f;
+
+            Trait nervesTrait = parent.story.traits.GetTrait(TraitDef.Named("Nerves"));
+
+            if (nervesTrait != null && nervesTrait.Degree == 2) return 0.9f;
+
+            return threshold;
+        }
+    }
+
     [StaticConstructorOnStartup]
     public static class HarmonyPatches
     {
@@ -464,7 +493,9 @@ namespace FamilyTies
 
             foreach (var parent in parents)
             {
-                if (parent != null && !parent.Dead && parent.Map == p.Map && parent.health.hediffSet.PainTotal > 0.01f) sufferingParentsCount++;
+                float painThreshold = StoicismUtil.GetPainThreshold(parent);
+
+                if (parent.health.hediffSet.PainTotal >= painThreshold) sufferingParentsCount++;
             }
 
             if (sufferingParentsCount == 1)
@@ -567,7 +598,9 @@ namespace FamilyTies
 
             foreach (var parent in parents)
             {
-                if (parent != null && !parent.Dead && parent.Map == p.Map && SickPawnUtil.IsSick(parent)) sickParentsCount++;
+                float sicknessThreshold = StoicismUtil.GetSicknessThreshold(parent);
+
+                if (IsSickAboveThreshold(parent, sicknessThreshold)) sickParentsCount++;
             }
 
             if (sickParentsCount == 1)
@@ -580,6 +613,11 @@ namespace FamilyTies
             }
 
             return ThoughtState.Inactive;
+        }
+
+        private bool IsSickAboveThreshold(Pawn pawn, float threshold)
+        {
+            return pawn.health.hediffSet.hediffs.Any(h => (h.def.HasComp(typeof(HediffComp_Immunizable)) || h.def.makesSickThought || h.def.HasComp(typeof(HediffComp_TendDuration))) && h.Severity >= threshold);
         }
     }
 }

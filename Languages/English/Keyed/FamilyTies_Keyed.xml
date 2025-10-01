@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
     <Unlimited>Unlimited</Unlimited>
+    <Reset>Reset</Reset>
 
     <!-- PAIN -->
     <!-- CHILDREN PAIN -->
@@ -49,10 +50,10 @@
     <FT_SettingLabel_CannibalsCareAboutChildrenPain>Cannibals care about family</FT_SettingLabel_CannibalsCareAboutChildrenPain>
     <FT_SettingTooltip_CannibalsCareAboutChildrenPain>If checked, pawns with Cannibal trait will care about their family.</FT_SettingTooltip_CannibalsCareAboutChildrenPain>
 
-    <FT_SettingLabel_FamilyDiedThought>Don't care about family death (requires restart)</FT_SettingLabel_FamilyDiedThought>
+    <FT_SettingLabel_FamilyDiedThought>Psychopaths don't care about family death (requires restart)</FT_SettingLabel_FamilyDiedThought>
     <FT_SettingTooltip_FamilyDiedThought>If checked, pawns with Psychopath trait will ignore family members' deaths.</FT_SettingTooltip_FamilyDiedThought>
 
-    <FT_SettingLabel_FamilyDiedSocial>Don't care at all (requires restart)</FT_SettingLabel_FamilyDiedSocial>
+    <FT_SettingLabel_FamilyDiedSocial>Psychopaths don't care at all (requires restart)</FT_SettingLabel_FamilyDiedSocial>
     <FT_SettingTooltip_FamilyDiedSocial>If checked, pawns with Psychopath trait will be indifferent to killer and to the ones who sold psycho's relatives.</FT_SettingTooltip_FamilyDiedSocial>
 
     <FT_SettingLabel_ChildrenWorry>Children worry about parents</FT_SettingLabel_ChildrenWorry>
@@ -63,5 +64,11 @@
 
     <FT_SettingLabel_ChildMaxEmpathyAge>Maximal age of empathy</FT_SettingLabel_ChildMaxEmpathyAge>
     <FT_SettingTooltip_ChildMaxEmpathyAge>Children older that this will not care about their parents' troubles.</FT_SettingTooltip_ChildMaxEmpathyAge>
+
+    <FT_SettingLabel_ChildrenWorry_PainThreshold>Base threshold for parents' pain</FT_SettingLabel_ChildrenWorry_PainThreshold>
+    <FT_SettingTooltip_ChildrenWorry_PainThreshold>From which parents' pain level children will worry for them.</FT_SettingTooltip_ChildrenWorry_PainThreshold>
+
+    <FT_SettingLabel_ChildrenWorry_SickThreshold>Base threshold for parents' sickness severity</FT_SettingLabel_ChildrenWorry_SickThreshold>
+    <FT_SettingTooltip_ChildrenWorry_SickThreshold>From which parents' sickness severity level children will worry for them.</FT_SettingTooltip_ChildrenWorry_SickThreshold>
 </LanguageData>
 

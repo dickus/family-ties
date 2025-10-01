@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
     <Unlimited>Бесконечно</Unlimited>
+    <Reset>Сбросить</Reset>
 
     <!-- БОЛЬ -->
     <!-- БОЛЬ ДЕТЕЙ -->
@@ -49,11 +50,11 @@
     <FT_SettingLabel_CannibalsCareAboutChildrenPain>Каннибалы заботятся о семье</FT_SettingLabel_CannibalsCareAboutChildrenPain>
     <FT_SettingTooltip_CannibalsCareAboutChildrenPain>Если включить, каннибалы будут переживать о своих детях.</FT_SettingTooltip_CannibalsCareAboutChildrenPain>
 
-    <FT_SettingLabel_FamilyDiedThought>Не беспокоиться о смертях членов семьи (требуется перезапуск)</FT_SettingLabel_FamilyDiedThought>
+    <FT_SettingLabel_FamilyDiedThought>Психопаты не беспокоятся о смертях членов семьи (требуется перезапуск)</FT_SettingLabel_FamilyDiedThought>
     <FT_SettingTooltip_FamilyDiedThought>Если включить, психопаты не будут переживать о смертях членов своей семьи.</FT_SettingTooltip_FamilyDiedThought>
 
-    <FT_SettingLabel_FamilyDiedSocial>Совсем не беспокоиться (требуется перезапуск)</FT_SettingLabel_FamilyDiedSocial>
-    <FT_SettingTooltip_FamilyDiedSocial>Если включить, психопаты не будут снижать своё отношение к убийце или тому, кто продал близкого.</FT_SettingTooltip_FamilyDiedSocial>
+    <FT_SettingLabel_FamilyDiedSocial>Психопаты совсем не беспокоятся (требуется перезапуск)</FT_SettingLabel_FamilyDiedSocial>
+    <FT_SettingTooltip_FamilyDiedSocial>Если включить, психопаты не будут снижать своё отношение к убийце или тому, кто продал их близкого.</FT_SettingTooltip_FamilyDiedSocial>
 
     <FT_SettingLabel_ChildrenWorry>Дети переживают за родителей</FT_SettingLabel_ChildrenWorry>
     <FT_SettingTooltip_ChildrenWorry>Если включено, дети будут переживать из-за боли и болезней родителей.</FT_SettingTooltip_ChildrenWorry>
@@ -63,5 +64,11 @@
 
     <FT_SettingLabel_ChildMaxEmpathyAge>Максимальный возраст для эмпатии</FT_SettingLabel_ChildMaxEmpathyAge>
     <FT_SettingTooltip_ChildMaxEmpathyAge>Дети старше этого показателя не будут переживать за родителей.</FT_SettingTooltip_ChildMaxEmpathyAge>
+
+    <FT_SettingLabel_ChildrenWorry_PainThreshold>Базовый порог боли родителей</FT_SettingLabel_ChildrenWorry_PainThreshold>
+    <FT_SettingTooltip_ChildrenWorry_PainThreshold>С какого уровня боли родителей дети будут за них волноваться.</FT_SettingTooltip_ChildrenWorry_PainThreshold>
+
+    <FT_SettingLabel_ChildrenWorry_SickThreshold>Базовый порог серьёзности болезни родителей</FT_SettingLabel_ChildrenWorry_SickThreshold>
+    <FT_SettingTooltip_ChildrenWorry_SickThreshold>С какого уровня серьёзности болезни родителей дети будут за них волноваться.</FT_SettingTooltip_ChildrenWorry_SickThreshold>
 </LanguageData>
 

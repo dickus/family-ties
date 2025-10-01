@@ -1,5 +1,6 @@
 using UnityEngine;
 using Verse;
+using System;
 
 namespace FamilyTies
 {
@@ -61,7 +62,7 @@ namespace FamilyTies
 
             if (settings.childrenWorryAboutParents)
             {
-                Listing_Standard childrenWorry_Section = listingStandard.BeginSection(Text.LineHeight + 24f);
+                Listing_Standard childrenWorry_Section = listingStandard.BeginSection(Text.LineHeight + 104f);
 
                 childrenWorry_Section.ColumnWidth = (childrenWorry_Section.ColumnWidth - 17f) / 2f;
 
@@ -71,6 +72,15 @@ namespace FamilyTies
                         new TipSignal("FT_SettingTooltip_ChildMinEmpathyAge".Translate())
                         );
                 settings.childMinEmpathyAge = (int)childrenWorry_Section.Slider(settings.childMinEmpathyAge, 0, 18);
+
+                float painThresholdRounded = (float)Math.Round(settings.childWorryPainThreshold, 2);
+
+                childrenWorry_Section.Label(
+                        "FT_SettingLabel_ChildrenWorry_PainThreshold".Translate() + ": " + painThresholdRounded.ToStringPercent(),
+                        -1f,
+                        new TipSignal("FT_SettingTooltip_ChildrenWorry_PainThreshold".Translate())
+                );
+                settings.childWorryPainThreshold = childrenWorry_Section.Slider(settings.childWorryPainThreshold, 0f, 1f);
 
                 childrenWorry_Section.NewColumn();
 
@@ -83,11 +93,30 @@ namespace FamilyTies
                 );
                 settings.childMaxEmpathyAge = (int)childrenWorry_Section.Slider(settings.childMaxEmpathyAge, 0, 100);
 
+                float sickThresholdRounded = (float)Math.Round(settings.childWorrySickThreshold, 2);
+
+                childrenWorry_Section.Label(
+                        "FT_SettingLabel_ChildrenWorry_SickThreshold".Translate() + ": " + sickThresholdRounded.ToStringPercent(),
+                        -1f,
+                        new TipSignal("FT_SettingTooltip_ChildrenWorry_SickThreshold".Translate())
+                );
+                settings.childWorrySickThreshold = childrenWorry_Section.Slider(settings.childWorrySickThreshold, 0f, 1f);
+
+                if (childrenWorry_Section.ButtonText("Reset".TranslateSimple()))
+                {
+                    settings.childMinEmpathyAge = 6;
+                    settings.childMaxEmpathyAge = 18;
+                    settings.childWorryPainThreshold = 0.15f;
+                    settings.childWorrySickThreshold = 0.25f;
+                }
+
                 listingStandard.EndSection(childrenWorry_Section);
             }
 
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
+
+            if (settings.childMinEmpathyAge > settings.childMaxEmpathyAge) settings.childMaxEmpathyAge = settings.childMinEmpathyAge;
         }
 
         public override string SettingsCategory()
