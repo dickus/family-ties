@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+    <Unlimited>Бесконечно</Unlimited>
+
     <!-- БОЛЬ -->
+    <!-- БОЛЬ ДЕТЕЙ -->
     <HarmedMyChild_Male>Обидел моего ребёнка</HarmedMyChild_Male>
     <HarmedMyChild_Female>Обидела моего ребёнка</HarmedMyChild_Female>
 
@@ -12,21 +15,36 @@
 
     <MyChildIsInPain_Label>Мой ребёнок {CHILDNAME} страдает</MyChildIsInPain_Label>
 
+    <!-- БОЛЬ РОДИТЕЛЕЙ -->
+    <MyParentIsInPain_Label_Male>Моему папе больно</MyParentIsInPain_Label_Male>
+    <MyParentIsInPain_Label_Female>Моей маме больно</MyParentIsInPain_Label_Female>
+
+    <MyParentIsInPain_Desc_Male>Моему папе так больно... Я волнуюсь за него.</MyParentIsInPain_Desc_Male>
+    <MyParentIsInPain_Desc_Female>Моей маме так больно... Я волнуюсь за неё.</MyParentIsInPain_Desc_Female>
+
     <!-- БОЛЕЗНЬ -->
+    <!-- БОЛЕЗНЬ ДЕТЕЙ -->
     <MyChildIsSick_Label_Stage0>Мой ребёнок {CHILDNAME} болеет</MyChildIsSick_Label_Stage0>
-    <MyChildIsSick_Stage0_Desc_Male>Я волнуюсь за своего ребёнка, {CHILDNAME}. Надеюсь, он скоро поправится.</MyChildIsSick_Stage0_Desc_Male>
-    <MyChildIsSick_Stage0_Desc_Female>Я волнуюсь за своего ребёнка, {CHILDNAME}. Надеюсь, она скоро поправится.</MyChildIsSick_Stage0_Desc_Female>
+    <MyChildIsSick_Stage0_Desc_Male>Я волнуюсь за {CHILDNAME}. Надеюсь, он скоро поправится.</MyChildIsSick_Stage0_Desc_Male>
+    <MyChildIsSick_Stage0_Desc_Female>Я волнуюсь за {CHILDNAME}. Надеюсь, она скоро поправится.</MyChildIsSick_Stage0_Desc_Female>
 
     <MyChildIsSick_Label_Stage1>Мой ребёнок {CHILDNAME} умирает</MyChildIsSick_Label_Stage1>
-    <MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>Мой ребёнок, {CHILDNAME}, на грани смерти. Я должен быть рядом. Я не могу его потерять.</MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>
-    <MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>Мой ребёнок, {CHILDNAME}, на грани смерти. Я должен быть рядом. Я не могу её потерять.</MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>
+    <MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>{CHILDNAME} на грани смерти. Я должен быть рядом. Я не могу его потерять.</MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>
+    <MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>{CHILDNAME} на грани смерти. Я должен быть рядом. Я не могу её потерять.</MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>
 
-    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>Мой ребёнок, {CHILDNAME}, на грани смерти. Я должна быть рядом. Я не могу его потерять.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>
-    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>Мой ребёнок, {CHILDNAME}, на грани смерти. Я должна быть рядом. Я не могу её потерять.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>
+    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>{CHILDNAME} на грани смерти. Я должна быть рядом. Я не могу его потерять.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>
+    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>{CHILDNAME} на грани смерти. Я должна быть рядом. Я не могу её потерять.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>
+
+    <!-- БОЛЕЗНЬ РОДИТЕЛЕЙ -->
+    <MyParentIsSick_Label_Male>Мой папа болеет</MyParentIsSick_Label_Male>
+    <MyParentIsSick_Label_Female>Моя мама болеет</MyParentIsSick_Label_Female>
+
+    <MyParentIsSick_Desc_Male>Надеюсь, он скоро поправится.</MyParentIsSick_Desc_Male>
+    <MyParentIsSick_Desc_Female>Надеюсь, она скоро поправится.</MyParentIsSick_Desc_Female>
 
     <!-- НАСТРОЙКИ -->
     <FT_SettingLabel_AgeOfCaring>Годы переживаний</FT_SettingLabel_AgeOfCaring>
-    <FT_SettingTooltip_AgeOfCaring>До какого возраста ребёнка родители будут переживать за его состояние. 0 ― до самой смерти.</FT_SettingTooltip_AgeOfCaring>
+    <FT_SettingTooltip_AgeOfCaring>До какого возраста ребёнка родители будут переживать за его состояние.</FT_SettingTooltip_AgeOfCaring>
 
     <FT_SettingLabel_CannibalsCareAboutChildrenPain>Каннибалы заботятся о семье</FT_SettingLabel_CannibalsCareAboutChildrenPain>
     <FT_SettingTooltip_CannibalsCareAboutChildrenPain>Если включить, каннибалы будут переживать о своих детях.</FT_SettingTooltip_CannibalsCareAboutChildrenPain>
@@ -36,5 +54,14 @@
 
     <FT_SettingLabel_FamilyDiedSocial>Совсем не беспокоиться (требуется перезапуск)</FT_SettingLabel_FamilyDiedSocial>
     <FT_SettingTooltip_FamilyDiedSocial>Если включить, психопаты не будут снижать своё отношение к убийце или тому, кто продал близкого.</FT_SettingTooltip_FamilyDiedSocial>
+
+    <FT_SettingLabel_ChildrenWorry>Дети переживают за родителей</FT_SettingLabel_ChildrenWorry>
+    <FT_SettingTooltip_ChildrenWorry>Если включено, дети будут переживать из-за боли и болезней родителей.</FT_SettingTooltip_ChildrenWorry>
+
+    <FT_SettingLabel_ChildMinEmpathyAge>Минимальный возраст для эмпатии</FT_SettingLabel_ChildMinEmpathyAge>
+    <FT_SettingTooltip_ChildMinEmpathyAge>Дети моложе этого показателя не будут переживать за родителей.</FT_SettingTooltip_ChildMinEmpathyAge>
+
+    <FT_SettingLabel_ChildMaxEmpathyAge>Максимальный возраст для эмпатии</FT_SettingLabel_ChildMaxEmpathyAge>
+    <FT_SettingTooltip_ChildMaxEmpathyAge>Дети старше этого показателя не будут переживать за родителей.</FT_SettingTooltip_ChildMaxEmpathyAge>
 </LanguageData>
 

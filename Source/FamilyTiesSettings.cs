@@ -12,6 +12,10 @@ namespace FamilyTies
         public bool patchFamilyDiedThought = true;
         public bool patchFamilyDiedSocial = true;
 
+        public bool childrenWorryAboutParents = true;
+        public int childMinEmpathyAge = 6;
+        public int childMaxEmpathyAge = 0;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -23,6 +27,10 @@ namespace FamilyTies
             Scribe_Values.Look(ref patchFamilyDiedThought, "patchFamilyDiedThought", true);
 
             Scribe_Values.Look(ref patchFamilyDiedSocial, "patchFamilyDiedSocial", true);
+
+            Scribe_Values.Look(ref childrenWorryAboutParents, "childrenWorryAboutParents", true);
+            Scribe_Values.Look(ref childMinEmpathyAge, "childMinEmpathyAge", childMinEmpathyAge, true);
+            Scribe_Values.Look(ref childMaxEmpathyAge, "childMaxEmpathyAge", childMaxEmpathyAge, true);
         }
     }
 }

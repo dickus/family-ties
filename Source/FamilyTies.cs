@@ -376,5 +376,211 @@ namespace FamilyTies
             return ThoughtState.Inactive;
         }
     }
+
+    public class Thought_MyParentIsInPain : Thought_Situational
+    {
+        public override string LabelCap
+        {
+            get
+            {
+                if (this.CurStageIndex == 0)
+                {
+                    Pawn sufferingParent = FindSingleSufferingParent();
+
+                    if (sufferingParent != null)
+                    {
+                        string genderKey = (sufferingParent.gender == Gender.Male) ? "Male" : "Female";
+                        string key = $"MyParentIsInPain_Label_{genderKey}";
+
+                        return key.Translate();
+                    }
+                }
+
+                return base.LabelCap;
+            }
+        }
+
+        public override string Description
+        {
+            get
+            {
+                if (this.CurStageIndex == 0)
+                {
+                    Pawn sufferingParent = FindSingleSufferingParent();
+
+                    if (sufferingParent != null)
+                    {
+                        string genderKey = (sufferingParent.gender == Gender.Male) ? "Male" : "Female";
+                        string key = $"MyParentIsInPain_Desc_{genderKey}";
+
+                        return key.Translate();
+                    }
+                }
+
+                return base.Description;
+            }
+        }
+
+        private Pawn FindSingleSufferingParent()
+        {
+            Pawn foundParent = null;
+            int sufferingCount = 0;
+
+            IEnumerable<Pawn> parents = this.pawn.relations.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
+
+            foreach (var parent in parents)
+            {
+                if (parent != null && !parent.Dead && parent.Map == this.pawn.Map && parent.health.hediffSet.PainTotal > 0.01f)
+                {
+                    sufferingCount++;
+                    foundParent = parent;
+                }
+            }
+
+            return (sufferingCount == 1) ? foundParent : null;
+        }
+    }
+
+    public class ThoughtWorker_MyParentIsInPain : ThoughtWorker
+    {
+        protected override ThoughtState CurrentStateInternal(Pawn p)
+        {
+            if (!FamilyTiesMod.settings.childrenWorryAboutParents) return ThoughtState.Inactive;
+
+            int currentAge = p.ageTracker.AgeBiologicalYears;
+            int minAge = FamilyTiesMod.settings.childMinEmpathyAge;
+            int maxAge = FamilyTiesMod.settings.childMaxEmpathyAge;
+
+            if (currentAge < minAge) return ThoughtState.Inactive;
+            if (maxAge != 0 && currentAge > maxAge) return ThoughtState.Inactive;
+
+            if (p.ageTracker.AgeBiologicalYears < FamilyTiesMod.settings.childMinEmpathyAge) return ThoughtState.Inactive;
+            if (TraitUtil.IsUnempathetic(p)) return ThoughtState.Inactive;
+            if (p.Map == null) return ThoughtState.Inactive;
+
+            int sufferingParentsCount = 0;
+
+            IEnumerable<Pawn> parents = p.relations.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
+
+            foreach (var parent in parents)
+            {
+                if (parent != null && !parent.Dead && parent.Map == p.Map && parent.health.hediffSet.PainTotal > 0.01f) sufferingParentsCount++;
+            }
+
+            if (sufferingParentsCount == 1)
+            {
+                return ThoughtState.ActiveAtStage(0);
+            }
+            else if (sufferingParentsCount > 1)
+            {
+                return ThoughtState.ActiveAtStage(1);
+            }
+
+            return ThoughtState.Inactive;
+        }
+    }
+
+    public class Thought_MyParentIsSick : Thought_Situational
+    {
+        public override string LabelCap
+        {
+            get
+            {
+                if (this.CurStageIndex == 0)
+                {
+                    Pawn sickParent = FindSingleSickParent();
+
+                    if (sickParent != null)
+                    {
+                        string genderKey = (sickParent.gender == Gender.Male) ? "Male" : "Female";
+                        string key = $"MyParentIsSick_Label_{genderKey}";
+
+                        return key.Translate();
+                    }
+                }
+
+                return base.LabelCap;
+            }
+        }
+
+        public override string Description
+        {
+            get
+            {
+                if (this.CurStageIndex == 0)
+                {
+                    Pawn sickParent = FindSingleSickParent();
+
+                    if (sickParent != null)
+                    {
+                        string genderKey = (sickParent.gender == Gender.Male) ? "Male" : "Female";
+                        string key = $"MyParentIsSick_Desc_{genderKey}";
+
+                        return key.Translate();
+                    }
+                }
+
+                return base.Description;
+            }
+        }
+
+        private Pawn FindSingleSickParent()
+        {
+            Pawn foundParent = null;
+            int sickCount = 0;
+
+            IEnumerable<Pawn> parents = this.pawn.relations.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
+
+            foreach (var parent in parents)
+            {
+                if (parent != null && !parent.Dead && parent.Map == this.pawn.Map && SickPawnUtil.IsSick(parent))
+                {
+                    sickCount++;
+                    foundParent = parent;
+                }
+            }
+
+            return (sickCount == 1) ? foundParent : null;
+        }
+    }
+
+    public class ThoughtWorker_MyParentIsSick : ThoughtWorker
+    {
+        protected override ThoughtState CurrentStateInternal(Pawn p)
+        {
+            if (!FamilyTiesMod.settings.childrenWorryAboutParents) return ThoughtState.Inactive;
+
+            int currentAge = p.ageTracker.AgeBiologicalYears;
+            int minAge = FamilyTiesMod.settings.childMinEmpathyAge;
+            int maxAge = FamilyTiesMod.settings.childMaxEmpathyAge;
+
+            if (currentAge < minAge) return ThoughtState.Inactive;
+            if (maxAge != 0 && currentAge > maxAge) return ThoughtState.Inactive;
+
+            if (p.ageTracker.AgeBiologicalYears < FamilyTiesMod.settings.childMinEmpathyAge) return ThoughtState.Inactive;
+            if (TraitUtil.IsUnempathetic(p)) return ThoughtState.Inactive;
+            if (p.Map == null) return ThoughtState.Inactive;
+
+            int sickParentsCount = 0;
+
+            IEnumerable<Pawn> parents = p.relations.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
+
+            foreach (var parent in parents)
+            {
+                if (parent != null && !parent.Dead && parent.Map == p.Map && SickPawnUtil.IsSick(parent)) sickParentsCount++;
+            }
+
+            if (sickParentsCount == 1)
+            {
+                return ThoughtState.ActiveAtStage(0);
+            }
+            else if (sickParentsCount > 1)
+            {
+                return ThoughtState.ActiveAtStage(1);
+            }
+
+            return ThoughtState.Inactive;
+        }
+    }
 }
 
