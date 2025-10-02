@@ -70,5 +70,11 @@
 
     <FT_SettingLabel_ChildrenWorry_SickThreshold>Базовый порог серьёзности болезни родителей</FT_SettingLabel_ChildrenWorry_SickThreshold>
     <FT_SettingTooltip_ChildrenWorry_SickThreshold>С какого уровня серьёзности болезни родителей дети будут за них волноваться.</FT_SettingTooltip_ChildrenWorry_SickThreshold>
+
+    <FT_SettingLabel_ProudForMasterpiece>Гордость за шедевр ребёнка</FT_SettingLabel_ProudForMasterpiece>
+    <FT_SettingTooltip_ProudForMasterpiece>Если включено, у родителей будет повышаться настроение за созданный их ребёнком шедевр.</FT_SettingTooltip_ProudForMasterpiece>
+
+    <FT_SettingLabel_ProudForSkillUp>Гордость за повышение навыка</FT_SettingLabel_ProudForSkillUp>
+    <FT_SettingTooltip_ProudForSkillUp>Если включено, у родителей будет повышаться настроение за повышение навыка их ребёнком.</FT_SettingTooltip_ProudForSkillUp>
 </LanguageData>
 

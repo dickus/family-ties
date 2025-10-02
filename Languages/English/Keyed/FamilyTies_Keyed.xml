@@ -70,5 +70,11 @@
 
     <FT_SettingLabel_ChildrenWorry_SickThreshold>Base threshold for parents' sickness severity</FT_SettingLabel_ChildrenWorry_SickThreshold>
     <FT_SettingTooltip_ChildrenWorry_SickThreshold>From which parents' sickness severity level children will worry for them.</FT_SettingTooltip_ChildrenWorry_SickThreshold>
+
+    <FT_SettingLabel_ProudForMasterpiece>Pride for child's masterpiece</FT_SettingLabel_ProudForMasterpiece>
+    <FT_SettingTooltip_ProudForMasterpiece>If checked, parents will get a mood buff when their child creates a Masterwork or Legendary item.</FT_SettingTooltip_ProudForMasterpiece>
+
+    <FT_SettingLabel_ProudForSkillUp>Pride for child's skill up</FT_SettingLabel_ProudForSkillUp>
+    <FT_SettingTooltip_ProudForSkillUp>If checked, parents will get a mood buff when their child levels up a skill.</FT_SettingTooltip_ProudForSkillUp>
 </LanguageData>
 

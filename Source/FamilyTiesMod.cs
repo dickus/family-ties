@@ -113,6 +113,31 @@ namespace FamilyTies
                 listingStandard.EndSection(childrenWorry_Section);
             }
 
+            listingStandard.Gap(8f);
+
+            Rect proudParentsRect = listingStandard.GetRect(32f);
+            Listing_Standard proudParents_Section = new Listing_Standard();
+
+            proudParents_Section.Begin(proudParentsRect);
+
+            proudParents_Section.ColumnWidth = (proudParentsRect.width - 17f) / 2f;
+
+            proudParents_Section.CheckboxLabeled(
+                    "FT_SettingLabel_ProudForMasterpiece".Translate(),
+                    ref settings.proudForMasterpiece,
+                    "FT_SettingTooltip_ProudForMasterpiece".Translate()
+            );
+
+            proudParents_Section.NewColumn();
+
+            proudParents_Section.CheckboxLabeled(
+                    "FT_SettingLabel_ProudForSkillUp".Translate(),
+                    ref settings.proudForSkillUp,
+                    "FT_SettingTooltip_ProudForSkillUp".Translate()
+            );
+
+            proudParents_Section.End();
+
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
 

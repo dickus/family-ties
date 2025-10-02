@@ -275,16 +275,20 @@ namespace FamilyTies
         private Pawn FindFirstSufferingChild()
         {
             if (this.pawn.Map == null) return null;
+
             List<Pawn> allPawnsOnMap = this.pawn.Map.mapPawns.AllPawns;
             foreach (Pawn otherPawn in allPawnsOnMap)
             {
                 if (otherPawn == this.pawn || otherPawn.relations == null) continue;
+
                 if (otherPawn.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Parent) == this.pawn)
                 {
                     Pawn child = otherPawn;
+
                     if (!child.Dead && child.health.hediffSet.PainTotal > 0.01f)
                     {
                         int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+
                         if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit) return child;
                     }
                 }
@@ -675,6 +679,8 @@ namespace FamilyTies
     {
         public static void Postfix(IEnumerable<Thing> __result, Pawn worker)
         {
+            if (!FamilyTiesMod.settings.proudForMasterpiece) return;
+
             foreach (var product in __result)
             {
                 MasterpieceUtil.CheckAndRewardParent(worker, product);
@@ -691,6 +697,8 @@ namespace FamilyTies
 
         public static void Postfix(Pawn worker, (Map map, IntVec3 pos, BuildableDef buildable) __state)
         {
+            if (!FamilyTiesMod.settings.proudForMasterpiece) return;
+
             if (worker == null || __state.map == null) return;
 
             ThingDef thingDef = __state.buildable as ThingDef;
@@ -712,6 +720,8 @@ namespace FamilyTies
 
         public static void Postfix(SkillRecord __instance, int __state, Pawn ___pawn)
         {
+            if (!FamilyTiesMod.settings.proudForSkillUp) return;
+
             if (__state < __instance.Level)
             {
                 Pawn child = ___pawn;

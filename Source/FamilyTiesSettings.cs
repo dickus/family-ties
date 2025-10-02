@@ -19,6 +19,9 @@ namespace FamilyTies
         public float childWorryPainThreshold = 0.15f;
         public float childWorrySickThreshold = 0.25f;
 
+        public bool proudForMasterpiece = true;
+        public bool proudForSkillUp = true;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -28,7 +31,6 @@ namespace FamilyTies
             Scribe_Values.Look(ref cannibalsCareAboutChildernPain, "cannibalsCareAboutChildernPain", false);
 
             Scribe_Values.Look(ref patchFamilyDiedThought, "patchFamilyDiedThought", true);
-
             Scribe_Values.Look(ref patchFamilyDiedSocial, "patchFamilyDiedSocial", true);
 
             Scribe_Values.Look(ref childrenWorryAboutParents, "childrenWorryAboutParents", true);
@@ -37,6 +39,9 @@ namespace FamilyTies
 
             Scribe_Values.Look(ref childWorryPainThreshold, "childWorryPainThreshold", childWorryPainThreshold, true);
             Scribe_Values.Look(ref childWorrySickThreshold, "childWorrySickThreshold", childWorrySickThreshold, true);
+
+            Scribe_Values.Look(ref proudForMasterpiece, "proudForMasterpiece", true);
+            Scribe_Values.Look(ref proudForSkillUp, "proudForSkillUp", true);
         }
     }
 }
