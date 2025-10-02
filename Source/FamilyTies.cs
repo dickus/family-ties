@@ -81,6 +81,30 @@ namespace FamilyTies
         }
     }
 
+    public static class MasterpieceUtil
+    {
+        public static void CheckAndRewardParent(Pawn child, Thing product)
+        {
+            if (child == null || product == null) return;
+
+            if (product.TryGetQuality(out QualityCategory qc) && (qc == QualityCategory.Masterwork || qc == QualityCategory.Legendary))
+            {
+                int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+
+                if (ageLimit != 0 && child.ageTracker.AgeBiologicalYears > ageLimit) return;
+
+                IEnumerable<Pawn> parents = child.relations?.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
+
+                if (parents == null || !parents.Any()) return;
+
+                foreach (var parent in parents)
+                {
+                    if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent)) parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyChildCreatedMasterpiece"));
+                }
+            }
+        }
+    }
+
     [StaticConstructorOnStartup]
     public static class HarmonyPatches
     {
@@ -93,6 +117,32 @@ namespace FamilyTies
                 var takeDamagePostfix = new HarmonyMethod(typeof(Pawn_TakeDamage_Patch), nameof(Pawn_TakeDamage_Patch.Postfix));
 
                 harmony.Patch(targetDamageMethod, postfix: takeDamagePostfix);
+            }
+
+            var makeRecipeMethod = AccessTools.Method(typeof(GenRecipe), "MakeRecipeProducts");
+            if (makeRecipeMethod != null)
+            {
+                var recipePostfix = new HarmonyMethod(typeof(FinishRecipe_Patch), nameof(FinishRecipe_Patch.Postfix));
+
+                harmony.Patch(makeRecipeMethod, postfix: recipePostfix);
+            }
+
+            var completeConstructionMethod = AccessTools.Method(typeof(Frame), nameof(Frame.CompleteConstruction));
+            if (completeConstructionMethod != null)
+            {
+                var constructPrefix = new HarmonyMethod(typeof(ConstructFinish_Patch), nameof(ConstructFinish_Patch.Prefix));
+                var constructPostfix = new HarmonyMethod(typeof(ConstructFinish_Patch), nameof(ConstructFinish_Patch.Postfix));
+
+                harmony.Patch(completeConstructionMethod, prefix: constructPrefix, postfix: constructPostfix);
+            }
+
+            var learnMethod = AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.Learn));
+            if (learnMethod != null)
+            {
+                var learnPrefix = new HarmonyMethod(typeof(SkillLearn_Patch), nameof(SkillLearn_Patch.Prefix));
+                var learnPostfix = new HarmonyMethod(typeof(SkillLearn_Patch), nameof(SkillLearn_Patch.Postfix));
+
+                harmony.Patch(learnMethod, prefix: learnPrefix, postfix: learnPostfix);
             }
         }
     }
@@ -618,6 +668,75 @@ namespace FamilyTies
         private bool IsSickAboveThreshold(Pawn pawn, float threshold)
         {
             return pawn.health.hediffSet.hediffs.Any(h => (h.def.HasComp(typeof(HediffComp_Immunizable)) || h.def.makesSickThought || h.def.HasComp(typeof(HediffComp_TendDuration))) && h.Severity >= threshold);
+        }
+    }
+
+    public static class FinishRecipe_Patch
+    {
+        public static void Postfix(IEnumerable<Thing> __result, Pawn worker)
+        {
+            foreach (var product in __result)
+            {
+                MasterpieceUtil.CheckAndRewardParent(worker, product);
+            }
+        }
+    }
+
+    public static class ConstructFinish_Patch
+    {
+        public static void Prefix(Frame __instance, ref (Map map, IntVec3 pos, BuildableDef buildable) __state)
+        {
+            __state = (__instance.Map, __instance.Position, __instance.def.entityDefToBuild);
+        }
+
+        public static void Postfix(Pawn worker, (Map map, IntVec3 pos, BuildableDef buildable) __state)
+        {
+            if (worker == null || __state.map == null) return;
+
+            ThingDef thingDef = __state.buildable as ThingDef;
+
+            if (thingDef == null) return;
+
+            Thing product = __state.pos.GetFirstThing(__state.map, thingDef);
+
+            MasterpieceUtil.CheckAndRewardParent(worker, product);
+        }
+    }
+    
+    public static class SkillLearn_Patch
+    {
+        public static void Prefix(SkillRecord __instance, ref int __state, Pawn ___pawn)
+        {
+            __state = __instance.Level;
+        }
+
+        public static void Postfix(SkillRecord __instance, int __state, Pawn ___pawn)
+        {
+            if (__state < __instance.Level)
+            {
+                Pawn child = ___pawn;
+
+                if (child == null) return;
+
+                int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+                bool isAgeOk = (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit);
+
+                if (!isAgeOk) return;
+
+                IEnumerable<Pawn> parents = child.relations?.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
+
+                if (parents == null || !parents.Any()) return;
+
+                foreach (var parent in parents)
+                {
+                    if (parent != null && !parent.Dead)
+                    {
+                        bool isUnempathetic = TraitUtil.IsUnempathetic(parent);
+
+                        if (!isUnempathetic) parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyChildLeveledUpSkill"));
+                    }
+                }
+            }
         }
     }
 }
