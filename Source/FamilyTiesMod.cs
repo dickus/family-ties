@@ -27,11 +27,28 @@ namespace FamilyTies
             );
             settings.ageOfCaring = (int)listingStandard.Slider(settings.ageOfCaring, 0, 100);
 
-            listingStandard.CheckboxLabeled(
+            Rect cannibalsAndBloodlustRect = listingStandard.GetRect(24f);
+            Listing_Standard cannibalsAndBloodlust_Section = new Listing_Standard();
+
+            cannibalsAndBloodlust_Section.Begin(cannibalsAndBloodlustRect);
+
+            cannibalsAndBloodlust_Section.ColumnWidth = (cannibalsAndBloodlustRect.width - 17f) / 2f;
+
+            cannibalsAndBloodlust_Section.CheckboxLabeled(
                     "FT_SettingLabel_CannibalsCareAboutChildrenPain".Translate(),
-                    ref settings.cannibalsCareAboutChildernPain,
+                    ref settings.cannibalsCareAboutChildrenPain,
                     "FT_SettingTooltip_CannibalsCareAboutChildrenPain".Translate()
             );
+
+            cannibalsAndBloodlust_Section.NewColumn();
+
+            cannibalsAndBloodlust_Section.CheckboxLabeled(
+                    "FT_SettingLabel_BloodlustCareAboutChildrenPain".Translate(),
+                    ref settings.bloodlustCareAboutChildrenPain,
+                    "FT_SettingTooltip_BloodlustCareAboutChildrenPain".Translate()
+            );
+
+            listingStandard.EndSection(cannibalsAndBloodlust_Section);
 
             listingStandard.CheckboxLabeled(
                     "FT_SettingLabel_FamilyDiedThought".Translate(),

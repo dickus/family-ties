@@ -13,12 +13,16 @@ namespace FamilyTies
         {
             if (pawn?.story?.traits == null) return false;
 
-            if (pawn.story.traits.HasTrait(TraitDefOf.Psychopath) ||
-                pawn.story.traits.HasTrait(TraitDefOf.Bloodlust)) return true;
+            if (pawn.story.traits.HasTrait(TraitDefOf.Psychopath)) return true;
+
+            if (!FamilyTiesMod.settings.bloodlustCareAboutChildrenPain)
+            {
+                if (pawn.story.traits.HasTrait(TraitDefOf.Bloodlust)) return true;
+            }
 
             if (ModLister.IdeologyInstalled)
             {
-                if (!FamilyTiesMod.settings.cannibalsCareAboutChildernPain)
+                if (!FamilyTiesMod.settings.cannibalsCareAboutChildrenPain)
                 {
                     if (pawn.story.traits.HasTrait(TraitDef.Named("Cannibal"))) return true;
                 }

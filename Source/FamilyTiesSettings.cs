@@ -7,7 +7,8 @@ namespace FamilyTies
     {
         public int ageOfCaring = 0;
 
-        public bool cannibalsCareAboutChildernPain = false;
+        public bool cannibalsCareAboutChildrenPain = false;
+        public bool bloodlustCareAboutChildrenPain = false;
 
         public bool patchFamilyDiedThought = true;
         public bool patchFamilyDiedSocial = true;
@@ -28,7 +29,8 @@ namespace FamilyTies
 
             Scribe_Values.Look(ref ageOfCaring, "ageOfCaring", ageOfCaring, true);
 
-            Scribe_Values.Look(ref cannibalsCareAboutChildernPain, "cannibalsCareAboutChildernPain", false);
+            Scribe_Values.Look(ref cannibalsCareAboutChildrenPain, "cannibalsCareAboutChildrenPain", false);
+            Scribe_Values.Look(ref bloodlustCareAboutChildrenPain, "bloodlustCareAboutChildrenPain", false);
 
             Scribe_Values.Look(ref patchFamilyDiedThought, "patchFamilyDiedThought", true);
             Scribe_Values.Look(ref patchFamilyDiedSocial, "patchFamilyDiedSocial", true);
