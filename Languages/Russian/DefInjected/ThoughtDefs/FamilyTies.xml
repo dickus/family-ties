@@ -16,6 +16,12 @@
     <MyChildIsSick.stages.3.label>Мои дети умирают</MyChildIsSick.stages.3.label>
     <MyChildIsSick.stages.3.description>Они все могут умереть... Я этого не вынесу. Пожалуйста, пусть они выживут...</MyChildIsSick.stages.3.description>
 
+    <MySonLostLimb.stages.0.label>Мой сын потерял конечность</MySonLostLimb.stages.0.label>
+    <MySonLostLimb.stages.0.description>Мой мальчик стал калекой. Сердце болит видеть его таким.</MySonLostLimb.stages.0.description>
+
+    <MyDaughterLostLimb.stages.0.label>Моя дочь потеряла конечность</MyDaughterLostLimb.stages.0.label>
+    <MyDaughterLostLimb.stages.0.description>Моя девочка стала калекой. Сердце болит видеть её такой.</MyDaughterLostLimb.stages.0.description>
+
     <!-- ГОРДОСТЬ -->
     <MyChildCreatedMasterpiece.stages.0.label>Мой ребёнок создал шедевр!</MyChildCreatedMasterpiece.stages.0.label>
     <MyChildCreatedMasterpiece.stages.0.description>Я так горжусь своим ребёнком! У него определённо есть талант.</MyChildCreatedMasterpiece.stages.0.description>

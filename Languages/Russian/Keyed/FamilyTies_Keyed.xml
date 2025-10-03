@@ -48,10 +48,10 @@
     <FT_SettingTooltip_AgeOfCaring>До какого возраста ребёнка родители будут переживать за его состояние.</FT_SettingTooltip_AgeOfCaring>
 
     <FT_SettingLabel_CannibalsCareAboutChildrenPain>Каннибалы заботятся о семье</FT_SettingLabel_CannibalsCareAboutChildrenPain>
-    <FT_SettingTooltip_CannibalsCareAboutChildrenPain>Если включить, каннибалы будут переживать о своих детях.</FT_SettingTooltip_CannibalsCareAboutChildrenPain>
+    <FT_SettingTooltip_CannibalsCareAboutChildrenPain>Если включить, каннибалы будут переживать о своей семье.</FT_SettingTooltip_CannibalsCareAboutChildrenPain>
 
     <FT_SettingLabel_BloodlustCareAboutChildrenPain>Кровожадные заботятся о семье</FT_SettingLabel_BloodlustCareAboutChildrenPain>
-    <FT_SettingTooltip_BloodlustCareAboutChildrenPain>Если включить, кровожадные будут переживать о своих детях.</FT_SettingTooltip_BloodlustCareAboutChildrenPain>
+    <FT_SettingTooltip_BloodlustCareAboutChildrenPain>Если включить, кровожадные будут переживать о своей семье.</FT_SettingTooltip_BloodlustCareAboutChildrenPain>
 
     <FT_SettingLabel_FamilyDiedThought>Психопаты не беспокоятся о смертях членов семьи (требуется перезапуск)</FT_SettingLabel_FamilyDiedThought>
     <FT_SettingTooltip_FamilyDiedThought>Если включить, психопаты не будут переживать о смертях членов своей семьи.</FT_SettingTooltip_FamilyDiedThought>

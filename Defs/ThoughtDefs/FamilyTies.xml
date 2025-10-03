@@ -48,6 +48,32 @@
         </stages>
     </ThoughtDef>
 
+    <ThoughtDef>
+        <defName>MySonLostLimb</defName>
+        <durationDays>15</durationDays>
+        <stackLimit>5</stackLimit>
+        <stages>
+            <li>
+                <label>My son lost his limb</label>
+                <description>My boy is crippled. It breaks my heart to see him like this.</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>MyDaughterLostLimb</defName>
+        <durationDays>15</durationDays>
+        <stackLimit>5</stackLimit>
+        <stages>
+            <li>
+                <label>My daughter lost her limb</label>
+                <description>My girl is crippled. It breaks my heart to see her like this.</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
     <!-- PARENTS PAIN -->
     <ThoughtDef>
         <defName>MyParentIsInPain</defName>

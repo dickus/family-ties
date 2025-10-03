@@ -122,7 +122,7 @@ namespace FamilyTies
                 if (childrenWorry_Section.ButtonText("Reset".TranslateSimple()))
                 {
                     settings.childMinEmpathyAge = 6;
-                    settings.childMaxEmpathyAge = 18;
+                    settings.childMaxEmpathyAge = 0;
                     settings.childWorryPainThreshold = 0.15f;
                     settings.childWorrySickThreshold = 0.25f;
                 }
@@ -158,7 +158,10 @@ namespace FamilyTies
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
 
-            if (settings.childMinEmpathyAge > settings.childMaxEmpathyAge) settings.childMaxEmpathyAge = settings.childMinEmpathyAge;
+            if (settings.childMinEmpathyAge > settings.childMaxEmpathyAge)
+            {
+                settings.childMaxEmpathyAge = 0;
+            }
         }
 
         public override string SettingsCategory()

@@ -9,22 +9,25 @@ namespace FamilyTies
 {
     public static class TraitUtil
     {
-        public static bool IsUnempathetic(Pawn pawn)
+        public static bool IsUnempathetic(Pawn pawn, bool forPositiveThought = false)
         {
             if (pawn?.story?.traits == null) return false;
 
             if (pawn.story.traits.HasTrait(TraitDefOf.Psychopath)) return true;
 
-            if (!FamilyTiesMod.settings.bloodlustCareAboutChildrenPain)
+            if (!forPositiveThought)
             {
-                if (pawn.story.traits.HasTrait(TraitDefOf.Bloodlust)) return true;
-            }
-
-            if (ModLister.IdeologyInstalled)
-            {
-                if (!FamilyTiesMod.settings.cannibalsCareAboutChildrenPain)
+                if (!FamilyTiesMod.settings.bloodlustCareAboutChildrenPain)
                 {
-                    if (pawn.story.traits.HasTrait(TraitDef.Named("Cannibal"))) return true;
+                    if (pawn.story.traits.HasTrait(TraitDefOf.Bloodlust)) return true;
+                }
+
+                if (ModLister.IdeologyInstalled)
+                {
+                    if (!FamilyTiesMod.settings.cannibalsCareAboutChildrenPain)
+                    {
+                        if (pawn.story.traits.HasTrait(TraitDef.Named("Cannibal"))) return true;
+                    }
                 }
             }
 
@@ -46,6 +49,8 @@ namespace FamilyTies
 
         public static bool IsWorrisomeDisease(Hediff h)
         {
+            if (h is Hediff_MissingPart) return false;
+
             if (h is Hediff_Injury) return false;
 
             bool isImmunizable = h.def.HasComp(typeof(HediffComp_Immunizable));
@@ -103,7 +108,7 @@ namespace FamilyTies
 
                 foreach (var parent in parents)
                 {
-                    if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent)) parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyChildCreatedMasterpiece"));
+                    if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent, true)) parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyChildCreatedMasterpiece"));
                 }
             }
         }
@@ -123,7 +128,19 @@ namespace FamilyTies
                 harmony.Patch(targetDamageMethod, postfix: takeDamagePostfix);
             }
 
-            var makeRecipeMethod = AccessTools.Method(typeof(GenRecipe), "MakeRecipeProducts");
+            var lostLimbMethod = AccessTools.Method(
+                    typeof(Pawn_HealthTracker),
+                    nameof(Pawn_HealthTracker.AddHediff),
+                    new Type[] { typeof(Hediff), typeof(BodyPartRecord), typeof(DamageInfo?), typeof(DamageWorker.DamageResult) }
+            );
+            if (lostLimbMethod != null)
+            {
+                var lostLimbPostfix = new HarmonyMethod(typeof(LimbLoss_Patch), nameof(LimbLoss_Patch.Postfix));
+
+                harmony.Patch(lostLimbMethod, postfix: lostLimbPostfix);
+            }
+
+            var makeRecipeMethod = AccessTools.Method(typeof(GenRecipe), "MakeRecipeProducts", new Type[] { typeof(RecipeDef), typeof(Pawn), typeof(List<Thing>), typeof(ThingWithComps), typeof(IBillGiver), typeof(string) });
             if (makeRecipeMethod != null)
             {
                 var recipePostfix = new HarmonyMethod(typeof(FinishRecipe_Patch), nameof(FinishRecipe_Patch.Postfix));
@@ -140,13 +157,22 @@ namespace FamilyTies
                 harmony.Patch(completeConstructionMethod, prefix: constructPrefix, postfix: constructPostfix);
             }
 
-            var learnMethod = AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.Learn));
+            var learnMethod = AccessTools.Method(
+                    typeof(SkillRecord),
+                    nameof(SkillRecord.Learn),
+                    new Type[] { typeof(float), typeof(bool), typeof(bool) }
+            );
             if (learnMethod != null)
             {
                 var learnPrefix = new HarmonyMethod(typeof(SkillLearn_Patch), nameof(SkillLearn_Patch.Prefix));
                 var learnPostfix = new HarmonyMethod(typeof(SkillLearn_Patch), nameof(SkillLearn_Patch.Postfix));
 
                 harmony.Patch(learnMethod, prefix: learnPrefix, postfix: learnPostfix);
+                Log.Message("[Family Ties] Successfully patched SkillRecord.Learn.");
+            }
+            else
+            {
+                Log.Error("[Family Ties] Failed to find SkillRecord.Learn method to patch.");
             }
         }
     }
@@ -722,11 +748,11 @@ namespace FamilyTies
             __state = __instance.Level;
         }
 
-        public static void Postfix(SkillRecord __instance, int __state, Pawn ___pawn)
+        public static void Postfix(SkillRecord __instance, int __state, Pawn ___pawn, float xp, bool direct, bool ignoreLearnRate)
         {
             if (!FamilyTiesMod.settings.proudForSkillUp) return;
 
-            if (__state < __instance.Level)
+            if (__instance.Level > __state)
             {
                 Pawn child = ___pawn;
 
@@ -737,17 +763,47 @@ namespace FamilyTies
 
                 if (!isAgeOk) return;
 
-                IEnumerable<Pawn> parents = child.relations?.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
+                IEnumerable<Pawn> parents = child.relations?.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent && r.otherPawn != null).Select(r => r.otherPawn);
 
                 if (parents == null || !parents.Any()) return;
 
                 foreach (var parent in parents)
                 {
-                    if (parent != null && !parent.Dead)
-                    {
-                        bool isUnempathetic = TraitUtil.IsUnempathetic(parent);
+                    if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent, true)) parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyChildLeveledUpSkill"));
+                }
+            }
+        }
+    }
 
-                        if (!isUnempathetic) parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyChildLeveledUpSkill"));
+    public static class LimbLoss_Patch
+    {
+        public static void Postfix(Pawn_HealthTracker __instance, Hediff hediff, BodyPartRecord part, DamageInfo? dinfo, DamageWorker.DamageResult result)
+        {
+            if (!(hediff is Hediff_MissingPart)) return;
+
+            Pawn child = hediff.pawn;
+
+            if (child == null || child.relations == null) return;
+
+            int ageLimit = FamilyTiesMod.settings.ageOfCaring;
+
+            if (ageLimit != 0 && child.ageTracker.AgeBiologicalYears > ageLimit) return;
+
+            IEnumerable<Pawn> parents = child.relations.DirectRelations.Where(r => r.def == PawnRelationDefOf.Parent).Select(r => r.otherPawn);
+
+            if (!parents.Any()) return;
+
+            foreach (var parent in parents)
+            {
+                if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent))
+                {
+                    if (child.gender == Gender.Male)
+                    {
+                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MySonLostLimb"));
+                    }
+                    else
+                    {
+                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyDaughterLostLimb"));
                     }
                 }
             }
