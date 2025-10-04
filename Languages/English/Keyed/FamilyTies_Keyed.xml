@@ -26,15 +26,15 @@
     <!-- SICKNESS -->
     <!-- CHILDREN SICKNESS -->
     <MyChildIsSick_Label_Stage0>My child {CHILDNAME} is sick</MyChildIsSick_Label_Stage0>
-    <MyChildIsSick_Stage0_Desc_Male>I'm worried about my child, {CHILDNAME}. I hope he gets better soon.</MyChildIsSick_Stage0_Desc_Male>
-    <MyChildIsSick_Stage0_Desc_Female>I'm worried about my child, {CHILDNAME}. I hope she gets better soon.</MyChildIsSick_Stage0_Desc_Female>
+    <MyChildIsSick_Stage0_Desc_Male>I'm worried about {CHILDNAME}. I hope he gets better soon.</MyChildIsSick_Stage0_Desc_Male>
+    <MyChildIsSick_Stage0_Desc_Female>I'm worried about {CHILDNAME}. I hope she gets better soon.</MyChildIsSick_Stage0_Desc_Female>
 
     <MyChildIsSick_Label_Stage1>My child {CHILDNAME} is dying</MyChildIsSick_Label_Stage1>
-    <MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose him.</MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>
-    <MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose her.</MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>
+    <MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>{CHILDNAME} is on the verge of death. I must be close. I can't lose him.</MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>
+    <MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>{CHILDNAME} is on the verge of death. I must be close. I can't lose her.</MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>
 
-    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose him.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>
-    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose her.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>
+    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>{CHILDNAME} is on the verge of death. I must be close. I can't lose him.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>
+    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>{CHILDNAME} is on the verge of death. I must be close. I can't lose her.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>
 
     <!-- PARENTS SICKNESS -->
     <MyParentIsSick_Label_Male>My dad is sick</MyParentIsSick_Label_Male>
