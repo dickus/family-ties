@@ -32,11 +32,11 @@ namespace FamilyTies
                 {
                     if (child.gender == Gender.Male)
                     {
-                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MySonLostBodypart"));
+                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MySonLostLimb"));
                     }
                     else
                     {
-                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyDaughterLostBodypart"));
+                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyDaughterLostLimb"));
                     }
                 }
             }

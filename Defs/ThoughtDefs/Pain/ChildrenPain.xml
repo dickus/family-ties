@@ -47,7 +47,7 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>MySonLostBodypart</defName>
+        <defName>MySonLostLimb</defName>
         <durationDays>15</durationDays>
         <stackLimit>5</stackLimit>
         <stages>
@@ -60,7 +60,7 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>MyDaughterLostBodypart</defName>
+        <defName>MyDaughterLostLimb</defName>
         <durationDays>15</durationDays>
         <stackLimit>5</stackLimit>
         <stages>

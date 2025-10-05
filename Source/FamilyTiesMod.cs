@@ -18,14 +18,32 @@ namespace FamilyTies
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
 
+            Rect ageAndOpinionRect = listingStandard.GetRect(50f);
+            Listing_Standard ageAndOpinion_Section = new Listing_Standard();
+
+            ageAndOpinion_Section.Begin(ageAndOpinionRect);
+
+            ageAndOpinion_Section.ColumnWidth = (ageAndOpinionRect.width - 17f) / 2f;
+
             string ageOfCaringLabel = (settings.ageOfCaring == 0) ? "Unlimited".TranslateSimple() : settings.ageOfCaring.ToString();
 
-            listingStandard.Label(
+            ageAndOpinion_Section.Label(
                     "FT_SettingLabel_AgeOfCaring".Translate() + ": " + ageOfCaringLabel,
                     -1f,
                     new TipSignal("FT_SettingTooltip_AgeOfCaring".Translate())
             );
-            settings.ageOfCaring = (int)listingStandard.Slider(settings.ageOfCaring, 0, 100);
+            settings.ageOfCaring = (int)ageAndOpinion_Section.Slider(settings.ageOfCaring, 0, 100);
+
+            ageAndOpinion_Section.NewColumn();
+
+            ageAndOpinion_Section.Label(
+                    "FT_SettingLabel_Opinion".Translate() + ": " + settings.opinionThreshold,
+                    -1f,
+                    new TipSignal("FT_SettingTooltip_Opinion".Translate())
+            );
+            settings.opinionThreshold = (int)ageAndOpinion_Section.Slider(settings.opinionThreshold, -100, 100);
+
+            listingStandard.EndSection(ageAndOpinion_Section);
 
             Rect cannibalsAndBloodlustRect = listingStandard.GetRect(24f);
             Listing_Standard cannibalsAndBloodlust_Section = new Listing_Standard();

@@ -23,6 +23,8 @@ namespace FamilyTies
         public bool proudForMasterpiece = true;
         public bool proudForSkillUp = true;
 
+        public int opinionThreshold = 15;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -44,6 +46,8 @@ namespace FamilyTies
 
             Scribe_Values.Look(ref proudForMasterpiece, "proudForMasterpiece", true);
             Scribe_Values.Look(ref proudForSkillUp, "proudForSkillUp", true);
+
+            Scribe_Values.Look(ref opinionThreshold, "opinionThreshold", opinionThreshold, true);
         }
     }
 }

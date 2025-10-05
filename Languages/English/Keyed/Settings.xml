@@ -3,6 +3,9 @@
     <FT_SettingLabel_AgeOfCaring>Age of caring</FT_SettingLabel_AgeOfCaring>
     <FT_SettingTooltip_AgeOfCaring>Until what child's age their parent will care about their troubles in years.</FT_SettingTooltip_AgeOfCaring>
 
+    <FT_SettingLabel_Opinion>Opinion threshold</FT_SettingLabel_Opinion>
+    <FT_SettingTooltip_Opinion>Pawns will only care about other pawns with opinion higer than this.</FT_SettingTooltip_Opinion>
+
     <FT_SettingLabel_CannibalsCareAboutChildrenPain>Cannibals care about family</FT_SettingLabel_CannibalsCareAboutChildrenPain>
     <FT_SettingTooltip_CannibalsCareAboutChildrenPain>If checked, pawns with Cannibal trait will care about their family.</FT_SettingTooltip_CannibalsCareAboutChildrenPain>
 
