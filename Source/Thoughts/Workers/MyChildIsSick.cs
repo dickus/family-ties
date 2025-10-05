@@ -24,6 +24,8 @@ namespace FamilyTies
                     Pawn child = otherPawn;
                     int ageLimit = FamilyTiesMod.settings.ageOfCaring;
 
+                    if (!PawnRelationUtil.HasGoodRelation(p, child)) continue;
+
                     if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit)
                     {
                         if (SickPawnUtil.IsSick(child)) sickChildren.Add(child);

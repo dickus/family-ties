@@ -26,15 +26,17 @@ namespace FamilyTies
 
             foreach (var parent in parents)
             {
+                if (!PawnRelationUtil.HasGoodRelation(parent, child)) continue;
+
                 if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent))
                 {
                     if (child.gender == Gender.Male)
                     {
-                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MySonLostLimb"));
+                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MySonLostBodypart"));
                     }
                     else
                     {
-                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyDaughterLostLimb"));
+                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyDaughterLostBodypart"));
                     }
                 }
             }

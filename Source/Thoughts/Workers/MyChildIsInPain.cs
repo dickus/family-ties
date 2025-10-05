@@ -21,6 +21,9 @@ namespace FamilyTies
                 if (otherPawn.relations.DirectRelations.Any(rel => rel.def == PawnRelationDefOf.Parent && rel.otherPawn == p))
                 {
                     Pawn child = otherPawn;
+
+                    if (!PawnRelationUtil.HasGoodRelation(p, child)) continue;
+
                     int ageLimit = FamilyTiesMod.settings.ageOfCaring;
 
                     if (ageLimit == 0 || child.ageTracker.AgeBiologicalYears <= ageLimit)

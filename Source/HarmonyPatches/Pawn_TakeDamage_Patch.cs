@@ -24,6 +24,8 @@ namespace FamilyTies
                 if (!parents.Any()) return;
 
                 foreach (var parent in parents) {
+                    if (!PawnRelationUtil.HasGoodRelation(parent, victim)) continue;
+
                     if (parent == null || parent.Dead) continue;
 
                     if (parent == attacker)

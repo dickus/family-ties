@@ -35,6 +35,8 @@ namespace FamilyTies
 
             foreach (Pawn otherPawn in allPawnsOnMap)
             {
+                if (!PawnRelationUtil.HasGoodRelation(this.pawn, otherPawn)) continue;
+
                 if (otherPawn == this.pawn || otherPawn.relations == null) continue;
 
                 if (otherPawn.relations.DirectRelations.Any(rel => rel.def == PawnRelationDefOf.Parent && rel.otherPawn == this.pawn))

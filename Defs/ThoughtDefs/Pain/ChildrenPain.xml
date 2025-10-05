@@ -47,12 +47,12 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>MySonLostLimb</defName>
+        <defName>MySonLostBodypart</defName>
         <durationDays>15</durationDays>
         <stackLimit>5</stackLimit>
         <stages>
             <li>
-                <label>My son lost his limb</label>
+                <label>My son lost a bodypart</label>
                 <description>My boy is crippled. It breaks my heart to see him like this.</description>
                 <baseMoodEffect>-15</baseMoodEffect>
             </li>
@@ -60,12 +60,12 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>MyDaughterLostLimb</defName>
+        <defName>MyDaughterLostBodypart</defName>
         <durationDays>15</durationDays>
         <stackLimit>5</stackLimit>
         <stages>
             <li>
-                <label>My daughter lost her limb</label>
+                <label>My daughter lost a bodypart</label>
                 <description>My girl is crippled. It breaks my heart to see her like this.</description>
                 <baseMoodEffect>-10</baseMoodEffect>
             </li>

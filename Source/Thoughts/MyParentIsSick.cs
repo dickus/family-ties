@@ -58,6 +58,8 @@ namespace FamilyTies
 
             foreach (var parent in parents)
             {
+                if (!PawnRelationUtil.HasGoodRelation(this.pawn, parent)) continue;
+
                 if (parent != null && !parent.Dead && parent.Map == this.pawn.Map && SickPawnUtil.IsSick(parent))
                 {
                     sickCount++;

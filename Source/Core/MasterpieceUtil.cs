@@ -23,6 +23,8 @@ namespace FamilyTies
 
                 foreach (var parent in parents)
                 {
+                    if (!PawnRelationUtil.HasGoodRelation(parent, child)) continue;
+
                     if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent, true)) parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyChildCreatedMasterpiece"));
                 }
             }

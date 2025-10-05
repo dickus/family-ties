@@ -36,6 +36,8 @@ namespace FamilyTies
                 {
                     Pawn child = otherPawn;
 
+                    if (!PawnRelationUtil.HasGoodRelation(this.pawn, child)) continue;
+
                     if (!child.Dead && child.health.hediffSet.PainTotal > 0.01f)
                     {
                         int ageLimit = FamilyTiesMod.settings.ageOfCaring;
