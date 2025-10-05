@@ -1,49 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-    <Unlimited>Бесконечно</Unlimited>
-    <Reset>Сбросить</Reset>
-
-    <!-- БОЛЬ -->
-    <!-- БОЛЬ ДЕТЕЙ -->
-    <HarmedMyChild_Male>Обидел моего ребёнка</HarmedMyChild_Male>
-    <HarmedMyChild_Female>Обидела моего ребёнка</HarmedMyChild_Female>
-
-    <HarmedMyOwnChild_Male>Причинил боль своему ребёнку</HarmedMyOwnChild_Male>
-    <HarmedMyOwnChild_Desc_Male>Мой ребёнок пострадал от моей же руки. Как я мог это сделать?</HarmedMyOwnChild_Desc_Male>
-
-    <HarmedMyOwnChild_Female>Причинила боль своему ребёнку</HarmedMyOwnChild_Female>
-    <HarmedMyOwnChild_Desc_Female>Мой ребёнок пострадал от моей же руки. Как я могла это сделать?</HarmedMyOwnChild_Desc_Female>
-
-    <MyChildIsInPain_Label>Мой ребёнок {CHILDNAME} страдает</MyChildIsInPain_Label>
-
-    <!-- БОЛЬ РОДИТЕЛЕЙ -->
-    <MyParentIsInPain_Label_Male>Моему папе больно</MyParentIsInPain_Label_Male>
-    <MyParentIsInPain_Label_Female>Моей маме больно</MyParentIsInPain_Label_Female>
-
-    <MyParentIsInPain_Desc_Male>Моему папе так больно... Я волнуюсь за него.</MyParentIsInPain_Desc_Male>
-    <MyParentIsInPain_Desc_Female>Моей маме так больно... Я волнуюсь за неё.</MyParentIsInPain_Desc_Female>
-
-    <!-- БОЛЕЗНЬ -->
-    <!-- БОЛЕЗНЬ ДЕТЕЙ -->
-    <MyChildIsSick_Label_Stage0>Мой ребёнок {CHILDNAME} болеет</MyChildIsSick_Label_Stage0>
-    <MyChildIsSick_Stage0_Desc_Male>Я волнуюсь за {CHILDNAME}. Надеюсь, он скоро поправится.</MyChildIsSick_Stage0_Desc_Male>
-    <MyChildIsSick_Stage0_Desc_Female>Я волнуюсь за {CHILDNAME}. Надеюсь, она скоро поправится.</MyChildIsSick_Stage0_Desc_Female>
-
-    <MyChildIsSick_Label_Stage1>Мой ребёнок {CHILDNAME} умирает</MyChildIsSick_Label_Stage1>
-    <MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>{CHILDNAME} на грани смерти. Я должен быть рядом. Я не могу его потерять.</MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>
-    <MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>{CHILDNAME} на грани смерти. Я должен быть рядом. Я не могу её потерять.</MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>
-
-    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>{CHILDNAME} на грани смерти. Я должна быть рядом. Я не могу его потерять.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>
-    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>{CHILDNAME} на грани смерти. Я должна быть рядом. Я не могу её потерять.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>
-
-    <!-- БОЛЕЗНЬ РОДИТЕЛЕЙ -->
-    <MyParentIsSick_Label_Male>Мой папа болеет</MyParentIsSick_Label_Male>
-    <MyParentIsSick_Label_Female>Моя мама болеет</MyParentIsSick_Label_Female>
-
-    <MyParentIsSick_Desc_Male>Надеюсь, он скоро поправится.</MyParentIsSick_Desc_Male>
-    <MyParentIsSick_Desc_Female>Надеюсь, она скоро поправится.</MyParentIsSick_Desc_Female>
-
-    <!-- НАСТРОЙКИ -->
     <FT_SettingLabel_AgeOfCaring>Годы переживаний</FT_SettingLabel_AgeOfCaring>
     <FT_SettingTooltip_AgeOfCaring>До какого возраста ребёнка родители будут переживать за его состояние.</FT_SettingTooltip_AgeOfCaring>
 

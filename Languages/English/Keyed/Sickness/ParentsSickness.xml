@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <MyParentIsSick_Label_Male>My dad is sick</MyParentIsSick_Label_Male>
+    <MyParentIsSick_Label_Female>My mom is sick</MyParentIsSick_Label_Female>
+
+    <MyParentIsSick_Desc_Male>I hope he gets better soon.</MyParentIsSick_Desc_Male>
+    <MyParentIsSick_Desc_Female>I hope she gets better soon.</MyParentIsSick_Desc_Female>
+</LanguageData>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <HarmedMyChild_Male>Harmed my child</HarmedMyChild_Male>
+    <HarmedMyChild_Female>Harmed my child</HarmedMyChild_Female>
+
+    <HarmedMyOwnChild_Male>Harmed my own child</HarmedMyOwnChild_Male>
+    <HarmedMyOwnChild_Desc_Male>My child has suffered from my own hand. How could I have done this?</HarmedMyOwnChild_Desc_Male>
+
+    <HarmedMyOwnChild_Female>Harmed my own child</HarmedMyOwnChild_Female>
+    <HarmedMyOwnChild_Desc_Female>My child has suffered from my own hand. How could I have done this?</HarmedMyOwnChild_Desc_Female>
+
+    <MyChildIsInPain_Label>My child {CHILDNAME} is in pain</MyChildIsInPain_Label>
+</LanguageData>
+

@@ -1,49 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-    <Unlimited>Unlimited</Unlimited>
-    <Reset>Reset</Reset>
-
-    <!-- PAIN -->
-    <!-- CHILDREN PAIN -->
-    <HarmedMyChild_Male>Harmed my child</HarmedMyChild_Male>
-    <HarmedMyChild_Female>Harmed my child</HarmedMyChild_Female>
-
-    <HarmedMyOwnChild_Male>Harmed my own child</HarmedMyOwnChild_Male>
-    <HarmedMyOwnChild_Desc_Male>My child has suffered from my own hand. How could I have done this?</HarmedMyOwnChild_Desc_Male>
-
-    <HarmedMyOwnChild_Female>Harmed my own child</HarmedMyOwnChild_Female>
-    <HarmedMyOwnChild_Desc_Female>My child has suffered from my own hand. How could I have done this?</HarmedMyOwnChild_Desc_Female>
-
-    <MyChildIsInPain_Label>My child {CHILDNAME} is in pain</MyChildIsInPain_Label>
-
-    <!-- PARENTS PAIN -->
-    <MyParentIsInPain_Label_Male>My dad is in pain</MyParentIsInPain_Label_Male>
-    <MyParentIsInPain_Label_Female>My mom is in pain</MyParentIsInPain_Label_Female>
-
-    <MyParentIsInPain_Desc_Male>My dad is in so much pain... I worry about him.</MyParentIsInPain_Desc_Male>
-    <MyParentIsInPain_Desc_Female>My mom is in so much pain... I worry about her.</MyParentIsInPain_Desc_Female>
-
-    <!-- SICKNESS -->
-    <!-- CHILDREN SICKNESS -->
-    <MyChildIsSick_Label_Stage0>My child {CHILDNAME} is sick</MyChildIsSick_Label_Stage0>
-    <MyChildIsSick_Stage0_Desc_Male>I'm worried about {CHILDNAME}. I hope he gets better soon.</MyChildIsSick_Stage0_Desc_Male>
-    <MyChildIsSick_Stage0_Desc_Female>I'm worried about {CHILDNAME}. I hope she gets better soon.</MyChildIsSick_Stage0_Desc_Female>
-
-    <MyChildIsSick_Label_Stage1>My child {CHILDNAME} is dying</MyChildIsSick_Label_Stage1>
-    <MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>{CHILDNAME} is on the verge of death. I must be close. I can't lose him.</MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>
-    <MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>{CHILDNAME} is on the verge of death. I must be close. I can't lose her.</MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>
-
-    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>{CHILDNAME} is on the verge of death. I must be close. I can't lose him.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>
-    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>{CHILDNAME} is on the verge of death. I must be close. I can't lose her.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>
-
-    <!-- PARENTS SICKNESS -->
-    <MyParentIsSick_Label_Male>My dad is sick</MyParentIsSick_Label_Male>
-    <MyParentIsSick_Label_Female>My mom is sick</MyParentIsSick_Label_Female>
-
-    <MyParentIsSick_Desc_Male>I hope he gets better soon.</MyParentIsSick_Desc_Male>
-    <MyParentIsSick_Desc_Female>I hope she gets better soon.</MyParentIsSick_Desc_Female>
-
-    <!-- SETTINGS -->
     <FT_SettingLabel_AgeOfCaring>Age of caring</FT_SettingLabel_AgeOfCaring>
     <FT_SettingTooltip_AgeOfCaring>Until what child's age their parent will care about their troubles in years.</FT_SettingTooltip_AgeOfCaring>
 

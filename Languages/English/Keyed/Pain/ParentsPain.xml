@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <MyParentIsInPain_Label_Male>My dad is in pain</MyParentIsInPain_Label_Male>
+    <MyParentIsInPain_Label_Female>My mom is in pain</MyParentIsInPain_Label_Female>
+
+    <MyParentIsInPain_Desc_Male>My dad is in so much pain... I worry about him.</MyParentIsInPain_Desc_Male>
+    <MyParentIsInPain_Desc_Female>My mom is in so much pain... I worry about her.</MyParentIsInPain_Desc_Female>
+</LanguageData>
+

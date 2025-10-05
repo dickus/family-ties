@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <MyChildCreatedMasterpiece.stages.0.label>Мой ребёнок создал шедевр!</MyChildCreatedMasterpiece.stages.0.label>
+    <MyChildCreatedMasterpiece.stages.0.description>Я так горжусь своим ребёнком! У него определённо есть талант.</MyChildCreatedMasterpiece.stages.0.description>
+
+    <MyChildLeveledUpSkill.stages.0.label>Мой ребёнок стал более умелым</MyChildLeveledUpSkill.stages.0.label>
+    <MyChildLeveledUpSkill.stages.0.description>Приятно видеть, как мой ребёнок учится и становится лучше.</MyChildLeveledUpSkill.stages.0.description>
+</LanguageData>
+

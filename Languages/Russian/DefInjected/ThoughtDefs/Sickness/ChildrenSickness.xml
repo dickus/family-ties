@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <MyChildIsSick.stages.2.label>Мои дети болеют</MyChildIsSick.stages.2.label>
+    <MyChildIsSick.stages.2.description>Я волнуюсь за своих детей. Надеюсь, они скоро все поправятся.</MyChildIsSick.stages.2.description>
+
+    <MyChildIsSick.stages.3.label>Мои дети умирают</MyChildIsSick.stages.3.label>
+    <MyChildIsSick.stages.3.description>Они все могут умереть... Я этого не вынесу. Пожалуйста, пусть они выживут...</MyChildIsSick.stages.3.description>
+
+    <MySonLostLimb.stages.0.label>Мой сын потерял конечность</MySonLostLimb.stages.0.label>
+    <MySonLostLimb.stages.0.description>Мой мальчик стал калекой. Сердце болит видеть его таким.</MySonLostLimb.stages.0.description>
+
+    <MyDaughterLostLimb.stages.0.label>Моя дочь потеряла конечность</MyDaughterLostLimb.stages.0.label>
+    <MyDaughterLostLimb.stages.0.description>Моя девочка стала калекой. Сердце болит видеть её такой.</MyDaughterLostLimb.stages.0.description>
+</LanguageData>
+

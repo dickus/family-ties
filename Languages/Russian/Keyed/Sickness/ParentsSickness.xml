@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <MyParentIsSick_Label_Male>Мой папа болеет</MyParentIsSick_Label_Male>
+    <MyParentIsSick_Label_Female>Моя мама болеет</MyParentIsSick_Label_Female>
+
+    <MyParentIsSick_Desc_Male>Надеюсь, он скоро поправится.</MyParentIsSick_Desc_Male>
+    <MyParentIsSick_Desc_Female>Надеюсь, она скоро поправится.</MyParentIsSick_Desc_Female>
+</LanguageData>
+

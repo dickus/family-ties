@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <MyParentIsInPain_Label_Male>Моему папе больно</MyParentIsInPain_Label_Male>
+    <MyParentIsInPain_Label_Female>Моей маме больно</MyParentIsInPain_Label_Female>
+
+    <MyParentIsInPain_Desc_Male>Моему папе так больно... Я волнуюсь за него.</MyParentIsInPain_Desc_Male>
+    <MyParentIsInPain_Desc_Female>Моей маме так больно... Я волнуюсь за неё.</MyParentIsInPain_Desc_Female>
+</LanguageData>
+

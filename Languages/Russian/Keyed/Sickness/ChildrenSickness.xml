@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <MyChildIsSick_Label_Stage0>Мой ребёнок {CHILDNAME} болеет</MyChildIsSick_Label_Stage0>
+    <MyChildIsSick_Stage0_Desc_Male>Я волнуюсь за {CHILDNAME}. Надеюсь, он скоро поправится.</MyChildIsSick_Stage0_Desc_Male>
+    <MyChildIsSick_Stage0_Desc_Female>Я волнуюсь за {CHILDNAME}. Надеюсь, она скоро поправится.</MyChildIsSick_Stage0_Desc_Female>
+
+    <MyChildIsSick_Label_Stage1>Мой ребёнок {CHILDNAME} умирает</MyChildIsSick_Label_Stage1>
+    <MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>{CHILDNAME} на грани смерти. Я должен быть рядом. Я не могу его потерять.</MyChildIsSick_Stage1_Desc_ParentMale_ChildMale>
+    <MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>{CHILDNAME} на грани смерти. Я должен быть рядом. Я не могу её потерять.</MyChildIsSick_Stage1_Desc_ParentMale_ChildFemale>
+
+    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>{CHILDNAME} на грани смерти. Я должна быть рядом. Я не могу его потерять.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildMale>
+    <MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>{CHILDNAME} на грани смерти. Я должна быть рядом. Я не могу её потерять.</MyChildIsSick_Stage1_Desc_ParentFemale_ChildFemale>
+</LanguageData>
+

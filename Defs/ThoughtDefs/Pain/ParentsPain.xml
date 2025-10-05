@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThoughtDef>
+        <defName>MyParentIsInPain</defName>
+        <thoughtClass>FamilyTies.Thought_MyParentIsInPain</thoughtClass>
+        <workerClass>FamilyTies.ThoughtWorker_MyParentIsInPain</workerClass>
+        <stages>
+            <li>
+                <label>My parent is in pain</label>
+                <description>My father/mother is so hurt... I'm afraid for him/her.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+            <li>
+                <label>My parents are in pain</label>
+                <description>Both of my parents are hurt. I don't know what to do.</description>
+                <baseMoodEffect>-6</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>
+
