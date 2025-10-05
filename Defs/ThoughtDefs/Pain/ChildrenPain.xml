@@ -54,7 +54,7 @@
             <li>
                 <label>My son lost a bodypart</label>
                 <description>My boy is crippled. It breaks my heart to see him like this.</description>
-                <baseMoodEffect>-15</baseMoodEffect>
+                <baseMoodEffect>-10</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
