@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <TraitDef>
+        <defName>FamilyPerson</defName>
+        <commonality>0.3</commonality>
+        <degreeDatas>
+            <li>
+                <label>family person</label>
+                <description>Family is everything for {PAWN_nameDef}. {PAWN_nameDef} enjoys being around family members and knows the way around kids. Family joys and sorrows resonate with {PAWN_possessive} more than others.</description>
+            </li>
+        </degreeDatas>
+        <conflictingTraits>
+            <li>Psychopath</li>
+            <li>Recluse</li>
+        </conflictingTraits>
+    </TraitDef>
+</Defs>
+
