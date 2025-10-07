@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FamilyTies
 {
-    public class ThoughtWorker_FamilyPersonMoodIndependent : ThoughtWorker
+    public class ThoughtWorker_FamilyPersonMoodIndependent_Children : ThoughtWorker
     {
         private const int CheckInterval = 180;
         private static Dictionary<Pawn, int> pawnChildrenCounts = new Dictionary<Pawn, int>();

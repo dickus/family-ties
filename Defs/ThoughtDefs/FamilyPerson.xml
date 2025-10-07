@@ -2,7 +2,7 @@
 <Defs>
     <ThoughtDef>
         <defName>FamilyPerson_NearChildren</defName>
-        <workerClass>FamilyTies.ThoughtWorker_FamilyPersonMoodIndependent</workerClass>
+        <workerClass>FamilyTies.ThoughtWorker_FamilyPersonMoodIndependent_Children</workerClass>
         <stages>
             <li>
                 <label>Joyful around a kid</label>
@@ -13,6 +13,23 @@
                 <label>Joyful around children</label>
                 <description>Feeling overjoyed to be near children!</description>
                 <baseMoodEffect>5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>FamilyPerson_NearFamily</defName>
+        <workerClass>FamilyTies.ThoughtWorker_FamilyPersonMoodIndependent_Family</workerClass>
+        <stages>
+            <li>
+                <label>Feel good around a family member</label>
+                <description>Feeling good knowing that my family is around.</description>
+                <baseMoodEffect>4</baseMoodEffect>
+            </li>
+            <li>
+                <label>Feel good around family</label>
+                <description>It's so fulfilling to be surrounded by family!</description>
+                <baseMoodEffect>8</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
