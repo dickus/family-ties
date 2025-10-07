@@ -5,12 +5,12 @@
         <workerClass>FamilyTies.ThoughtWorker_FamilyPersonMoodIndependent_Children</workerClass>
         <stages>
             <li>
-                <label>Joyful around a kid</label>
+                <label>Around a kid</label>
                 <description>Feeling happy to be near a little one.</description>
                 <baseMoodEffect>2</baseMoodEffect>
             </li>
             <li>
-                <label>Joyful around children</label>
+                <label>Around children</label>
                 <description>Feeling overjoyed to be near children!</description>
                 <baseMoodEffect>5</baseMoodEffect>
             </li>
@@ -22,12 +22,12 @@
         <workerClass>FamilyTies.ThoughtWorker_FamilyPersonMoodIndependent_Family</workerClass>
         <stages>
             <li>
-                <label>Feel good around a family member</label>
+                <label>Around a family member</label>
                 <description>Feeling good knowing that my family is around.</description>
                 <baseMoodEffect>4</baseMoodEffect>
             </li>
             <li>
-                <label>Feel good around family</label>
+                <label>Around family</label>
                 <description>It's so fulfilling to be surrounded by family!</description>
                 <baseMoodEffect>8</baseMoodEffect>
             </li>
