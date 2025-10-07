@@ -13,9 +13,16 @@ namespace FamilyTies
         {
             var harmony = new Harmony("com.dickus.familyties");
 
-            var targetDamageMethod = AccessTools.Method(typeof(Thing), "TakeDamage", new Type[] { typeof(DamageInfo) });
+            var targetDamageMethod = AccessTools.Method(
+                    typeof(Thing),
+                    "TakeDamage",
+                    new Type[] { typeof(DamageInfo) }
+            );
             if (targetDamageMethod != null) {
-                var takeDamagePostfix = new HarmonyMethod(typeof(Pawn_TakeDamage_Patch), nameof(Pawn_TakeDamage_Patch.Postfix));
+                var takeDamagePostfix = new HarmonyMethod(
+                        typeof(Pawn_TakeDamage_Patch),
+                        nameof(Pawn_TakeDamage_Patch.Postfix)
+                );
 
                 harmony.Patch(targetDamageMethod, postfix: takeDamagePostfix);
             }
@@ -27,24 +34,42 @@ namespace FamilyTies
             );
             if (lostLimbMethod != null)
             {
-                var lostLimbPostfix = new HarmonyMethod(typeof(LimbLoss_Patch), nameof(LimbLoss_Patch.Postfix));
+                var lostLimbPostfix = new HarmonyMethod(
+                        typeof(LimbLoss_Patch),
+                        nameof(LimbLoss_Patch.Postfix)
+                );
 
                 harmony.Patch(lostLimbMethod, postfix: lostLimbPostfix);
             }
 
-            var makeRecipeMethod = AccessTools.Method(typeof(GenRecipe), "MakeRecipeProducts", new Type[] { typeof(RecipeDef), typeof(Pawn), typeof(List<Thing>), typeof(ThingWithComps), typeof(IBillGiver), typeof(string) });
+            var makeRecipeMethod = AccessTools.Method(
+                    typeof(GenRecipe),
+                    "MakeRecipeProducts",
+                    new Type[] { typeof(RecipeDef), typeof(Pawn), typeof(List<Thing>), typeof(ThingWithComps), typeof(IBillGiver), typeof(string) });
             if (makeRecipeMethod != null)
             {
-                var recipePostfix = new HarmonyMethod(typeof(FinishRecipe_Patch), nameof(FinishRecipe_Patch.Postfix));
+                var recipePostfix = new HarmonyMethod(
+                        typeof(FinishRecipe_Patch),
+                        nameof(FinishRecipe_Patch.Postfix)
+                );
 
                 harmony.Patch(makeRecipeMethod, postfix: recipePostfix);
             }
 
-            var completeConstructionMethod = AccessTools.Method(typeof(Frame), nameof(Frame.CompleteConstruction));
+            var completeConstructionMethod = AccessTools.Method(
+                    typeof(Frame),
+                    nameof(Frame.CompleteConstruction)
+            );
             if (completeConstructionMethod != null)
             {
-                var constructPrefix = new HarmonyMethod(typeof(ConstructFinish_Patch), nameof(ConstructFinish_Patch.Prefix));
-                var constructPostfix = new HarmonyMethod(typeof(ConstructFinish_Patch), nameof(ConstructFinish_Patch.Postfix));
+                var constructPrefix = new HarmonyMethod(
+                        typeof(ConstructFinish_Patch),
+                        nameof(ConstructFinish_Patch.Prefix)
+                );
+                var constructPostfix = new HarmonyMethod(
+                        typeof(ConstructFinish_Patch),
+                        nameof(ConstructFinish_Patch.Postfix)
+                );
 
                 harmony.Patch(completeConstructionMethod, prefix: constructPrefix, postfix: constructPostfix);
             }
@@ -56,15 +81,16 @@ namespace FamilyTies
             );
             if (learnMethod != null)
             {
-                var learnPrefix = new HarmonyMethod(typeof(SkillLearn_Patch), nameof(SkillLearn_Patch.Prefix));
-                var learnPostfix = new HarmonyMethod(typeof(SkillLearn_Patch), nameof(SkillLearn_Patch.Postfix));
+                var learnPrefix = new HarmonyMethod(
+                        typeof(SkillLearn_Patch),
+                        nameof(SkillLearn_Patch.Prefix)
+                );
+                var learnPostfix = new HarmonyMethod(
+                        typeof(SkillLearn_Patch),
+                        nameof(SkillLearn_Patch.Postfix)
+                );
 
                 harmony.Patch(learnMethod, prefix: learnPrefix, postfix: learnPostfix);
-                Log.Message("[Family Ties] Successfully patched SkillRecord.Learn.");
-            }
-            else
-            {
-                Log.Error("[Family Ties] Failed to find SkillRecord.Learn method to patch.");
             }
         }
     }
