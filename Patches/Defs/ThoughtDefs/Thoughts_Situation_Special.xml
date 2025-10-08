@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>ludeon.rimworld.biotech</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThoughtDef[defName="PregnancyAttitude"]/stages/li[1]/nullifyingTraits</xpath>
+                    <match Class="PatchOperationAdd">
+                        <xpath>Defs/ThoughtDef[defName="PregnancyAttitude"]/stages/li[1]/nullifyingTraits</xpath>
+                        <value>
+                            <li>FamilyPerson</li>
+                        </value>
+                    </match>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs/ThoughtDef[defName="PregnancyAttitude"]/stages/li[1]</xpath>
+                        <value>
+                            <nullifyingTraits>
+                                <li>FamilyPerson</li>
+                            </nullifyingTraits>
+                        </value>
+                    </nomatch>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
+
