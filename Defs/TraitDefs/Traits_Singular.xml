@@ -2,7 +2,7 @@
 <Defs>
     <TraitDef>
         <defName>FamilyPerson</defName>
-        <commonality>0.3</commonality>
+        <commonality>0.5</commonality>
         <degreeDatas>
             <li>
                 <label>family person</label>
@@ -11,7 +11,7 @@
         </degreeDatas>
         <conflictingTraits>
             <li>Psychopath</li>
-            <li>Recluse</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">Recluse</li>
         </conflictingTraits>
     </TraitDef>
 </Defs>

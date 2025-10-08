@@ -15,6 +15,18 @@
                 <description>Both of my parents are sick. Who will take care of me now?</description>
                 <baseMoodEffect>-4</baseMoodEffect>
             </li>
+
+            <!-- Family person -->
+            <li>
+                <label>My parent is sick</label>
+                <description>My parent is sick. I hope they will get better soon.</description>
+                <baseMoodEffect>-3</baseMoodEffect>
+            </li>
+            <li>
+                <label>My parents are sick</label>
+                <description>Both of my parents are sick. Who will take care of me now?</description>
+                <baseMoodEffect>-6</baseMoodEffect>
+            </li>
         </stages>
     </ThoughtDef>
 </Defs>

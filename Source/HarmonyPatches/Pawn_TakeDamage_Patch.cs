@@ -32,7 +32,19 @@ namespace FamilyTies
                     {
                         if (!TraitUtil.IsUnempathetic(parent))
                         {
-                            parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("HarmedMyOwnChild"));
+                            ThoughtDef thoughtDef = ThoughtDef.Named("HarmedMyOwnChild");
+                            Thought_Memory thought = null;
+
+                            if (FamilyPersonUtil.IsFamilyPerson(parent))
+                            {
+                                thought = (Thought_Memory)ThoughtMaker.MakeThought(thoughtDef, 1);
+                            }
+                            else
+                            {
+                                thought = (Thought_Memory)ThoughtMaker.MakeThought(thoughtDef, 0);
+                            }
+
+                            parent.needs.mood.thoughts.memories.TryGainMemory(thought, victim);
                         }
                     }
                     else

@@ -30,14 +30,28 @@ namespace FamilyTies
 
                 if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent))
                 {
+                    ThoughtDef thoughtDef = null;
+                    Thought_Memory thought = null;
+
                     if (child.gender == Gender.Male)
                     {
-                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MySonLostLimb"));
+                        thoughtDef = ThoughtDef.Named("MySonLostLimb");
                     }
                     else
                     {
-                        parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyDaughterLostLimb"));
+                        thoughtDef = ThoughtDef.Named("MyDaughterLostLimb");
                     }
+
+                    if (FamilyPersonUtil.IsFamilyPerson(parent))
+                    {
+                        thought = (Thought_Memory)ThoughtMaker.MakeThought(thoughtDef, 1);
+                    }
+                    else
+                    {
+                        thought = (Thought_Memory)ThoughtMaker.MakeThought(thoughtDef, 0);
+                    }
+
+                    parent.needs.mood.thoughts.memories.TryGainMemory(thought, child);
                 }
             }
         }

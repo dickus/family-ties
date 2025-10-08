@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThoughtDef>
+        <defName>HarmedMyChild</defName>
+        <thoughtClass>FamilyTies.Thought_HarmedMyChild</thoughtClass>
+        <durationDays>30</durationDays>
+        <stackLimit>5</stackLimit>
+        <stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+        <stages>
+            <li>
+                <label>Harmed my child</label>
+                <baseOpinionOffset>-30</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>
+

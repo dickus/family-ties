@@ -36,7 +36,21 @@ namespace FamilyTies
                 {
                     if (!PawnRelationUtil.HasGoodRelation(parent, child)) continue;
 
-                    if (parent != null && !parent.Dead && !TraitUtil.IsUnempathetic(parent, true)) parent.needs.mood.thoughts.memories.TryGainMemory(ThoughtDef.Named("MyChildLeveledUpSkill"));
+                    if (parent == null && parent.Dead && TraitUtil.IsUnempathetic(parent, true)) continue;
+
+                    ThoughtDef thoughtDef = ThoughtDef.Named("MyChildLeveledUpSkill");
+                    Thought_Memory thought = null;
+
+                    if (FamilyPersonUtil.IsFamilyPerson(parent))
+                    {
+                        thought = (Thought_Memory)ThoughtMaker.MakeThought(thoughtDef, 1);
+                    }
+                    else
+                    {
+                        thought = (Thought_Memory)ThoughtMaker.MakeThought(thoughtDef, 0);
+                    }
+
+                    parent.needs.mood.thoughts.memories.TryGainMemory(thought, child);
                 }
             }
         }

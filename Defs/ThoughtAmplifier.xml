@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <FamilyTies.FamilyPerson_ThoughtAmplifierDef>
+        <defName>FamilyPerson_ThoughtAmplifier</defName>
+        <label>Thought amplifier</label>
+        <amplifiers>
+            <!-- Core -->
+            <!-- Death -->
+            <li>
+                <thoughtDef>MySonDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyDaughterDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyHusbandDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyWifeDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyFianceDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyFianceeDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyMotherDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyFatherDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!-- Gatherings -->
+            <li>
+                <thoughtDef>GotMarried</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>AttendedWedding</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!-- Lost -->
+            <li>
+                <thoughtDef>MySonLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyDaughterLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyHusbandLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyWifeLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyFianceLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyFianceeLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyFatherLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyMotherLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!-- Misc -->
+            <li>
+                <thoughtDef>WitnessedDeathFamily</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>FailedToRescueRelative</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>RescuedRelative</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!-- Biotech -->
+            <!-- Childcare -->
+            <li>
+                <thoughtDef>CryingBaby</thoughtDef>
+                <multiplier>0.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyCryingBaby</thoughtDef>
+                <multiplier>0.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>GigglingBaby</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyGigglingBaby</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!-- Death -->
+            <li>
+                <thoughtDef>KilledChild</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyBirthMotherDied</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyBirthMotherLost</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!-- Special -->
+            <li>
+                <thoughtDef>PregnancyTerminated</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>Stillbirth</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>Miscarried</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>PartnerMiscarried</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>BabyBorn</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!-- Situation_Special -->
+            <li>
+                <thoughtDef>PregnancyMood_Collapse</thoughtDef>
+                <multiplier>0.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>PregnancyMood_Down</thoughtDef>
+                <multiplier>0.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>PregnancyMood_Up</thoughtDef>
+                <multiplier>0.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>PregnancyMood_High</thoughtDef>
+                <multiplier>0.5</multiplier>
+            </li>
+
+            <!-- Children -->
+            <li>
+                <thoughtDef>MyChildHappy</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyChildrenHappy</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyChildSad</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyChildrenSad</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>YoungstersHappy</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>YoungstersSad</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>EnslavedChild</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyBabySick</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>ChildInGrowthVat</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyParentHappy</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyParentsHappy</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+        </amplifiers>
+    </FamilyTies.FamilyPerson_ThoughtAmplifierDef>
+</Defs>
+

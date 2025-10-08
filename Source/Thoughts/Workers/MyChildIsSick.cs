@@ -39,22 +39,50 @@ namespace FamilyTies
 
                 if (SickPawnUtil.IsCriticallyIll(theChild))
                 {
-                    return ThoughtState.ActiveAtStage(1);
+                    if (FamilyPersonUtil.IsFamilyPerson(p))
+                    {
+                        return ThoughtState.ActiveAtStage(5);
+                    }
+                    else
+                    {
+                        return ThoughtState.ActiveAtStage(1);
+                    }
                 }
                 else
                 {
-                    return ThoughtState.ActiveAtStage(0);
+                    if (FamilyPersonUtil.IsFamilyPerson(p))
+                    {
+                        return ThoughtState.ActiveAtStage(4);
+                    }
+                    else
+                    {
+                        return ThoughtState.ActiveAtStage(0);
+                    }
                 }
             }
             else if (sickChildren.Count > 1)
             {
                 if (sickChildren.All(child => SickPawnUtil.IsCriticallyIll(child)))
                 {
-                    return ThoughtState.ActiveAtStage(3);
+                    if (FamilyPersonUtil.IsFamilyPerson(p))
+                    {
+                        return ThoughtState.ActiveAtStage(6);
+                    }
+                    else
+                    {
+                        return ThoughtState.ActiveAtStage(3);
+                    }
                 }
                 else
                 {
-                    return ThoughtState.ActiveAtStage(2);
+                    if (FamilyPersonUtil.IsFamilyPerson(p))
+                    {
+                        return ThoughtState.ActiveAtStage(7);
+                    }
+                    else
+                    {
+                        return ThoughtState.ActiveAtStage(2);
+                    }
                 }
             }
 

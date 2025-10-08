@@ -10,6 +10,13 @@
                 <description>I'm so proud of my child! They totally have a talent for this.</description>
                 <baseMoodEffect>5</baseMoodEffect>
             </li>
+
+            <!-- Family person-->
+            <li>
+                <label>My child created a masterpiece!</label>
+                <description>I'm so proud of my child! They totally have a talent for this.</description>
+                <baseMoodEffect>7</baseMoodEffect>
+            </li>
         </stages>
     </ThoughtDef>
 
@@ -22,6 +29,13 @@
                 <label>My child became more skillful</label>
                 <description>It's nice to see my child learn and get better.</description>
                 <baseMoodEffect>1</baseMoodEffect>
+            </li>
+
+            <!-- Family person-->
+            <li>
+                <label>My child became more skillful</label>
+                <description>It's nice to see my child learn and get better.</description>
+                <baseMoodEffect>2</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>

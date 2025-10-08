@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <ThoughtDef>
-        <defName>HarmedMyChild</defName>
-        <thoughtClass>FamilyTies.Thought_HarmedMyChild</thoughtClass>
-        <durationDays>30</durationDays>
-        <stackLimit>5</stackLimit>
-        <stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
-        <stages>
-            <li>
-                <label>Harmed my child</label>
-                <baseOpinionOffset>-30</baseOpinionOffset>
-            </li>
-        </stages>
-    </ThoughtDef>
-
-    <ThoughtDef>
         <defName>MyChildIsInPain</defName>
         <thoughtClass>FamilyTies.Thought_MyChildIsInPain</thoughtClass>
         <workerClass>FamilyTies.ThoughtWorker_MyChildIsInPain</workerClass>
@@ -28,6 +14,18 @@
                 <label>My children are in pain</label>
                 <description>My children are suffering... It's unbearable.</description>
                 <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+
+            <!-- Family person -->
+            <li>
+                <label>My child is in pain</label>
+                <description>The thought of my child's pain haunts me.</description>
+                <baseMoodEffect>-7</baseMoodEffect>
+            </li>
+            <li>
+                <label>My children are in pain</label>
+                <description>My children are suffering... It's unbearable.</description>
+                <baseMoodEffect>-15</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
@@ -43,6 +41,13 @@
                 <description>I harmed my own child. How could I have done this?</description>
                 <baseMoodEffect>-10</baseMoodEffect>
             </li>
+
+            <!-- Family person -->
+            <li>
+                <label>Harmed my own child</label>
+                <description>I harmed my own child. How could I have done this?</description>
+                <baseMoodEffect>-15</baseMoodEffect>
+            </li>
         </stages>
     </ThoughtDef>
 
@@ -56,6 +61,13 @@
                 <description>My boy is crippled. It breaks my heart to see him like this.</description>
                 <baseMoodEffect>-10</baseMoodEffect>
             </li>
+
+            <!-- Family person -->
+            <li>
+                <label>My son lost a bodypart</label>
+                <description>My boy is crippled. It breaks my heart to see him like this.</description>
+                <baseMoodEffect>-15</baseMoodEffect>
+            </li>
         </stages>
     </ThoughtDef>
 
@@ -68,6 +80,13 @@
                 <label>My daughter lost a bodypart</label>
                 <description>My girl is crippled. It breaks my heart to see her like this.</description>
                 <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+
+            <!-- Family person -->
+            <li>
+                <label>My daughter lost a bodypart</label>
+                <description>My girl is crippled. It breaks my heart to see her like this.</description>
+                <baseMoodEffect>-15</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>

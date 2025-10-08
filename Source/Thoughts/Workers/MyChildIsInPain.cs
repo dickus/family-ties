@@ -33,8 +33,28 @@ namespace FamilyTies
                 }
             }
 
-            if (suffereingChildrenCount == 1) return ThoughtState.ActiveAtStage(0);
-            if (suffereingChildrenCount > 1) return ThoughtState.ActiveAtStage(1);
+            if (suffereingChildrenCount == 1)
+            {
+                if (FamilyPersonUtil.IsFamilyPerson(p))
+                {
+                    return ThoughtState.ActiveAtStage(2);
+                }
+                else
+                {
+                    return ThoughtState.ActiveAtStage(0);
+                }
+            }
+            if (suffereingChildrenCount > 1)
+            {
+                if (FamilyPersonUtil.IsFamilyPerson(p))
+                {
+                    return ThoughtState.ActiveAtStage(3);
+                }
+                else
+                {
+                    return ThoughtState.ActiveAtStage(1);
+                }
+            }
 
             return ThoughtState.Inactive;
         }

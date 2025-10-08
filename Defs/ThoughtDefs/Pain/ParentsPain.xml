@@ -15,6 +15,18 @@
                 <description>Both of my parents are hurt. I don't know what to do.</description>
                 <baseMoodEffect>-6</baseMoodEffect>
             </li>
+
+            <!-- Family person -->
+            <li>
+                <label>My parent is in pain</label>
+                <description>My father/mother is so hurt... I'm afraid for him/her.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+            <li>
+                <label>My parents are in pain</label>
+                <description>Both of my parents are hurt. I don't know what to do.</description>
+                <baseMoodEffect>-9</baseMoodEffect>
+            </li>
         </stages>
     </ThoughtDef>
 </Defs>
