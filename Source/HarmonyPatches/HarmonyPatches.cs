@@ -106,6 +106,20 @@ namespace FamilyTies
 
                 harmony.Patch(moodOffsetMethod, postfix: moodOffsetPostfix);
             }
+
+            var workerMoodOffsetMethod = AccessTools.Method(
+                    typeof(ThoughtWorker),
+                    nameof(ThoughtWorker.MoodMultiplier)
+            );
+            if (workerMoodOffsetMethod != null)
+            {
+                var workerMoodOffsetPostfix = new HarmonyMethod(
+                        typeof(ThoughtWorker_MoodMultiplier_Patch),
+                        nameof(ThoughtWorker_MoodMultiplier_Patch.Postfix)
+                );
+
+                harmony.Patch(workerMoodOffsetMethod, postfix: workerMoodOffsetPostfix);
+            }
         }
     }
 }
