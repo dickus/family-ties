@@ -25,28 +25,6 @@
                 <description>They all may die... I can't take it. Please, let them live...</description>
                 <baseMoodEffect>-20</baseMoodEffect>
             </li>
-
-            <!-- Family person -->
-            <li>
-                <label>My child is sick</label>
-                <description>I'm worried about my child, {CHILDNAME}. I hope it gets better soon.</description>
-                <baseMoodEffect>-6</baseMoodEffect>
-            </li>
-            <li>
-                <label>My child is dying</label>
-                <description>My child, {CHILDNAME}, is on the verge of death. I must be close. I can't lose him.</description>
-                <baseMoodEffect>-20</baseMoodEffect>
-            </li>
-            <li>
-                <label>My children are sick</label>
-                <description>I'm worried about my children. I hope they all get better soon.</description>
-                <baseMoodEffect>-12</baseMoodEffect>
-            </li>
-            <li>
-                <label>My children are dying</label>
-                <description>They all may die... I can't take it. Please, let them live...</description>
-                <baseMoodEffect>-30</baseMoodEffect>
-            </li>
         </stages>
     </ThoughtDef>
 </Defs>

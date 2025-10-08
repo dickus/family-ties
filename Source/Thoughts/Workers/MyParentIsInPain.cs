@@ -37,25 +37,11 @@ namespace FamilyTies
 
             if (sufferingParentsCount == 1)
             {
-                if (FamilyPersonUtil.IsFamilyPerson(p))
-                {
-                    return ThoughtState.ActiveAtStage(2);
-                }
-                else
-                {
-                    return ThoughtState.ActiveAtStage(0);
-                }
+                return ThoughtState.ActiveAtStage(0);
             }
             else if (sufferingParentsCount > 1)
             {
-                if (FamilyPersonUtil.IsFamilyPerson(p))
-                {
-                    return ThoughtState.ActiveAtStage(3);
-                }
-                else
-                {
-                    return ThoughtState.ActiveAtStage(1);
-                }
+                return ThoughtState.ActiveAtStage(1);
             }
 
             return ThoughtState.Inactive;

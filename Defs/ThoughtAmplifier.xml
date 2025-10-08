@@ -4,6 +4,50 @@
         <defName>FamilyPerson_ThoughtAmplifier</defName>
         <label>Thought amplifier</label>
         <amplifiers>
+            <!-- Family Ties -->
+            <!-- Pain -->
+            <li>
+                <thoughtDef>MyChildIsInPain</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>HarmedMyOwnChild</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MySonLostLimb</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyDaughterLostLimb</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyParentIsInPain</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!-- Sickness -->
+            <li>
+                <thoughtDef>MyChildIsSick</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <!--=== Proud parents ===-->
+            <li>
+                <thoughtDef>MyChildCreatedMasterpiece</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
+            <li>
+                <thoughtDef>MyChildLeveledUpSkill</thoughtDef>
+                <multiplier>1.5</multiplier>
+            </li>
+
             <!-- Core -->
             <!-- Death -->
             <li>
