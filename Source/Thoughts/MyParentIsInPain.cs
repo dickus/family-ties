@@ -60,7 +60,9 @@ namespace FamilyTies
             {
                 if (!PawnRelationUtil.HasGoodRelation(this.pawn, parent)) continue;
 
-                if (parent != null && !parent.Dead && parent.Map == this.pawn.Map && parent.health.hediffSet.PainTotal > 0.01f)
+                float painThreshold = StoicismUtil.GetPainThreshold(parent);
+
+                if (parent != null && !parent.Dead && parent.Map == this.pawn.Map && parent.health.hediffSet.PainTotal > painThreshold)
                 {
                     sufferingCount++;
                     foundParent = parent;
