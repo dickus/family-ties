@@ -27,6 +27,13 @@ namespace FamilyTies
 
             return (isImmunizable || makesSickThought || isTendable) && h.Severity > 0.1f;
         }
+
+        public static bool IsWorrisomeDiseaseAboveThreshold(Pawn pawn, float threshold)
+        {
+            if (pawn?.health?.hediffSet == null) return false;
+
+            return pawn.health.hediffSet.hediffs.Any(h => IsWorrisomeDisease(h) && h.Severity >= threshold);
+        }
     }
 }
 

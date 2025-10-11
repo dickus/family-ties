@@ -32,7 +32,7 @@ namespace FamilyTies
 
                 float sicknessThreshold = StoicismUtil.GetSicknessThreshold(parent);
 
-                if (IsSickAboveThreshold(parent, sicknessThreshold)) sickParentsCount++;
+                if (SickPawnUtil.IsWorrisomeDiseaseAboveThreshold(parent, sicknessThreshold)) sickParentsCount++;
             }
 
             if (sickParentsCount == 1)
@@ -45,11 +45,6 @@ namespace FamilyTies
             }
 
             return ThoughtState.Inactive;
-        }
-
-        private bool IsSickAboveThreshold(Pawn pawn, float threshold)
-        {
-            return pawn.health.hediffSet.hediffs.Any(h => (h.def.HasComp(typeof(HediffComp_Immunizable)) || h.def.makesSickThought || h.def.HasComp(typeof(HediffComp_TendDuration))) && h.Severity >= threshold);
         }
     }
 }
