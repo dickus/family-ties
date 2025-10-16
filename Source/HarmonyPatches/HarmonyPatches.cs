@@ -120,6 +120,20 @@ namespace FamilyTies
 
                 harmony.Patch(workerMoodOffsetMethod, postfix: workerMoodOffsetPostfix);
             }
+
+            var restoredLimbMethod = AccessTools.Method(
+                    typeof(Hediff),
+                    nameof(Hediff.PostRemoved)
+            );
+            if (restoredLimbMethod != null)
+            {
+                var restoredLimbPostfix = new HarmonyMethod(
+                        typeof(LimbRestored_Patch),
+                        nameof(LimbRestored_Patch.Postfix)
+                );
+
+                harmony.Patch(restoredLimbMethod, postfix: restoredLimbPostfix);
+            }
         }
     }
 }
