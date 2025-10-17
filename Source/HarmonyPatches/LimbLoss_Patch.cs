@@ -8,7 +8,7 @@ namespace FamilyTies
 {
     public static class LimbLoss_Patch
     {
-        public static void Postfix(Hediff hediff, BodyPartRecord part, DamageInfo? dinfo, DamageWorker.DamageResult result)
+        public static void Postfix(Pawn_HealthTracker __instance, Hediff hediff, BodyPartRecord part, DamageInfo? dinfo, DamageWorker.DamageResult result)
         {
             if (!(hediff is Hediff_MissingPart)) return;
 
