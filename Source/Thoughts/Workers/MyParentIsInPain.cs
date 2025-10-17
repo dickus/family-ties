@@ -28,6 +28,8 @@ namespace FamilyTies
 
             foreach (var parent in parents)
             {
+                if (parent == null || parent.Dead) continue;
+                if (parent.Map != p.Map) continue;
                 if (!PawnRelationUtil.HasGoodRelation(p, parent)) continue;
 
                 float painThreshold = StoicismUtil.GetPainThreshold(parent);
