@@ -18,8 +18,8 @@ namespace FamilyTies
         public static bool IsWorrisomeDisease(Hediff h)
         {
             if (h is Hediff_MissingPart) return false;
-
             if (h is Hediff_Injury) return false;
+            if (h.def == HediffDefOf.InfantIllness) return false;
 
             bool isImmunizable = h.def.HasComp(typeof(HediffComp_Immunizable));
             bool makesSickThought = h.def.makesSickThought;
