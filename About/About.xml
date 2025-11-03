@@ -2,7 +2,7 @@
 <ModMetaData>
     <name>Family Ties</name>
     <author>dickus</author>
-    <modVersion>1.0.2</modVersion>
+    <modVersion>1.0.3</modVersion>
     <packageId>dickus.familyties</packageId>
     <description>Even on the harsh outskirts of the galaxy, family ties matter. This mod deepens family relationships, making parents respond to the pain and struggle of their offspring, and children worry or rejoice for their parents.</description>
     <supportedVersions>
@@ -14,6 +14,10 @@
             <displayName>Harmony</displayName>
             <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
             <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+        </li>
+        <li>
+            <packageId>ludeon.rimworld.biotech</packageId>
+            <displayName>Biotech</displayName>
         </li>
     </modDependencies>
 </ModMetaData>
